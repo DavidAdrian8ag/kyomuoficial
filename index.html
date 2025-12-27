@@ -4,23 +4,23 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYOMU | Anime & Comic Apparel</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700;900&family=Roboto:wght@300;400;700&display=swap"
+    <title>KYOMU | Streetwear Archive</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Oswald:wght@500;700&display=swap"
         rel="stylesheet">
+
     <style>
-        /* --- 1. CONFIGURACIÓN BASE & ESTÉTICA CYBERPUNK --- */
+        /* --- 1. CORE ESTÉTICO (ESTILO LVCRECIA) --- */
         :root {
-            --bg-dark: #0f0f11;
-            --bg-card: #1a1a1d;
+            --bg-color: #050505;
+            /* Negro profundo casi absoluto */
+            --card-bg: #000000;
             --text-main: #ffffff;
-            --text-dim: #a0a0a0;
-            --accent-primary: #8a2be2;
-            /* Violeta Neón */
-            --accent-secondary: #00e5ff;
-            /* Cian Cyberpunk */
-            --font-title: 'Orbitron', sans-serif;
-            --font-body: 'Roboto', sans-serif;
+            --text-muted: #888888;
+            --border-color: #222222;
+            --accent: #ffffff;
+            /* En este estilo, el acento es blanco, no color */
+            --font-display: 'Oswald', sans-serif;
+            --font-body: 'Inter', sans-serif;
         }
 
         * {
@@ -30,267 +30,252 @@
         }
 
         body {
-            background-color: var(--bg-dark);
+            background-color: var(--bg-color);
             color: var(--text-main);
             font-family: var(--font-body);
+            font-size: 14px;
+            /* Letra pequeña y elegante */
             overflow-x: hidden;
         }
 
         a {
             text-decoration: none;
             color: inherit;
-            transition: 0.3s;
         }
 
-        ul {
-            list-style: none;
-        }
-
-        /* --- 2. NAVEGACIÓN --- */
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 20px 5%;
-            background: rgba(15, 15, 17, 0.95);
-            position: fixed;
+        img {
             width: 100%;
-            top: 0;
-            z-index: 1000;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
-        }
-
-        .logo {
-            font-family: var(--font-title);
-            font-size: 1.5rem;
-            letter-spacing: 2px;
-            color: var(--text-main);
-            text-transform: uppercase;
-        }
-
-        .logo span {
-            color: var(--accent-primary);
-        }
-
-        .cart-btn {
-            background: transparent;
-            border: 1px solid var(--text-main);
-            color: var(--text-main);
-            padding: 8px 15px;
-            border-radius: 50px;
-            cursor: pointer;
-            font-size: 0.9rem;
-        }
-
-        /* --- 3. HERO SECTION (Impacto Visual) --- */
-        .hero {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.8)),
-                url('https://images.unsplash.com/photo-1613376023733-0a73315d9b06?q=80&w=1470&auto=format&fit=crop');
-            /* NOTA: Cambia la URL de arriba por una foto de portada de anime/comics */
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
-        }
-
-        .hero h1 {
-            font-family: var(--font-title);
-            font-size: clamp(2.5rem, 8vw, 5rem);
-            text-transform: uppercase;
-            line-height: 1.1;
-            margin-bottom: 20px;
-            text-shadow: 0 0 20px rgba(138, 43, 226, 0.5);
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            max-width: 600px;
-            color: var(--text-dim);
-            margin-bottom: 30px;
-        }
-
-        .cta-btn {
-            padding: 15px 40px;
-            background: var(--accent-primary);
-            color: white;
-            font-weight: bold;
-            font-family: var(--font-title);
-            border: none;
-            clip-path: polygon(10% 0, 100% 0, 100% 70%, 90% 100%, 0 100%, 0 30%);
-            /* Forma futurista */
-            cursor: pointer;
-            transition: 0.3s;
-        }
-
-        .cta-btn:hover {
-            background: var(--accent-secondary);
-            transform: scale(1.05);
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.4);
-        }
-
-        /* --- 4. SISTEMA DE FILTROS --- */
-        .filters {
-            display: flex;
-            justify-content: center;
-            gap: 15px;
-            padding: 50px 20px 20px;
-            flex-wrap: wrap;
-        }
-
-        .filter-btn {
-            background: transparent;
-            border: 1px solid var(--text-dim);
-            color: var(--text-dim);
-            padding: 8px 20px;
-            border-radius: 4px;
-            cursor: pointer;
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            transition: 0.3s;
-        }
-
-        .filter-btn.active,
-        .filter-btn:hover {
-            border-color: var(--accent-primary);
-            color: var(--accent-primary);
-            background: rgba(138, 43, 226, 0.1);
-        }
-
-        /* --- 5. GRID DE PRODUCTOS (Responsive) --- */
-        .gallery-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 20px 5%;
-            margin-bottom: 80px;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 30px;
-        }
-
-        /* Tarjeta de Producto */
-        .product-card {
-            background: var(--bg-card);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: 0.4s;
-            position: relative;
-            border: 1px solid rgba(255, 255, 255, 0.05);
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            border-color: var(--accent-primary);
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
-        }
-
-        .img-container {
-            width: 100%;
-            height: 350px;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .img-container img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            /* Asegura que la foto llene el espacio sin deformarse */
-            transition: 0.5s;
-        }
-
-        .product-card:hover .img-container img {
-            transform: scale(1.1);
-        }
-
-        .card-details {
-            padding: 20px;
-        }
-
-        .category-tag {
-            font-size: 0.7rem;
-            color: var(--accent-secondary);
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
             display: block;
         }
 
-        .product-title {
-            font-size: 1.1rem;
-            margin-bottom: 10px;
-            font-weight: 700;
-        }
-
-        .price-row {
+        /* --- 2. HEADER MINIMALISTA --- */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(5, 5, 5, 0.9);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--border-color);
+            z-index: 1000;
+            padding: 15px 20px;
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-top: 15px;
         }
 
-        .price {
-            font-size: 1.2rem;
+        .brand {
+            font-family: var(--font-display);
+            font-size: 1.5rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-weight: 700;
+        }
+
+        .nav-icons {
+            display: flex;
+            gap: 20px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            font-weight: 600;
+        }
+
+        /* --- 3. CATEGORY SELECTOR (SCROLL HORIZONTAL) --- */
+        .category-bar {
+            margin-top: 70px;
+            /* Espacio para el header fijo */
+            padding: 15px 20px;
+            overflow-x: auto;
+            white-space: nowrap;
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid var(--border-color);
+            scrollbar-width: none;
+            /* Ocultar scrollbar en Firefox */
+        }
+
+        .category-bar::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Ocultar en Chrome */
+
+        .cat-btn {
+            background: transparent;
+            color: var(--text-muted);
+            border: 1px solid var(--border-color);
+            padding: 8px 20px;
+            font-family: var(--font-body);
+            text-transform: uppercase;
+            font-size: 0.75rem;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .cat-btn.active,
+        .cat-btn:hover {
+            color: var(--bg-color);
+            background: var(--text-main);
+            border-color: var(--text-main);
+        }
+
+        /* --- 4. PRODUCT GRID (ESTILO CALLEJERO) --- */
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        .grid {
+            display: grid;
+            /* Móvil: 2 columnas exactas como Lucrecia/Apps de moda */
+            grid-template-columns: repeat(2, 1fr);
+            gap: 10px;
+            /* Espacio muy fino entre productos */
+            row-gap: 40px;
+        }
+
+        .product-card {
+            cursor: pointer;
+            position: relative;
+        }
+
+        .image-wrapper {
+            position: relative;
+            background: #111;
+            aspect-ratio: 3 / 4;
+            /* Formato vertical de moda */
+            overflow: hidden;
+            margin-bottom: 12px;
+        }
+
+        .image-wrapper img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        }
+
+        /* Hover effect sutil */
+        .product-card:hover .image-wrapper img {
+            transform: scale(1.03);
+        }
+
+        /* Etiquetas (Sold Out / New) */
+        .badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--text-main);
+            color: var(--bg-color);
+            padding: 4px 8px;
+            font-size: 0.6rem;
+            text-transform: uppercase;
+            font-weight: 700;
+            z-index: 2;
+        }
+
+        .badge-red {
+            background: #ff3333;
+            color: white;
+        }
+
+        .product-info {
+            text-align: left;
+        }
+
+        .p-title {
+            font-family: var(--font-body);
+            font-weight: 400;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            margin-bottom: 4px;
+            line-height: 1.2;
+        }
+
+        .p-price {
+            font-weight: 600;
+            font-size: 0.9rem;
             color: var(--text-main);
         }
 
-        .buy-mini-btn {
-            background: white;
-            color: black;
-            border: none;
-            width: 35px;
-            height: 35px;
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
+        .p-meta {
+            font-size: 0.7rem;
+            color: var(--text-muted);
+            margin-top: 2px;
+            text-transform: uppercase;
+        }
+
+        /* Botón de compra rápido flotante en móvil (opcional) o integrado */
+        .quick-add {
+            margin-top: 10px;
+            width: 100%;
+            padding: 10px;
+            background: transparent;
+            border: 1px solid var(--text-main);
+            color: var(--text-main);
+            text-transform: uppercase;
+            font-size: 0.7rem;
+            font-weight: 700;
             cursor: pointer;
             transition: 0.2s;
         }
 
-        .buy-mini-btn:hover {
-            background: var(--accent-primary);
-            color: white;
+        .quick-add:hover {
+            background: var(--text-main);
+            color: var(--bg-color);
         }
 
-        /* --- FOOTER --- */
+        /* --- 5. FOOTER SIMPLE --- */
         footer {
-            background: #000;
-            padding: 40px;
-            text-align: center;
-            border-top: 2px solid var(--accent-primary);
+            padding: 60px 20px;
+            border-top: 1px solid var(--border-color);
+            margin-top: 50px;
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
         }
 
-        @media (max-width: 768px) {
-            .hero h1 {
-                font-size: 2.5rem;
+        .marquee {
+            overflow: hidden;
+            white-space: nowrap;
+            padding: 10px 0;
+            border-bottom: 1px solid var(--border-color);
+            border-top: 1px solid var(--border-color);
+            margin-bottom: 30px;
+        }
+
+        .marquee span {
+            display: inline-block;
+            padding-left: 100%;
+            animation: marquee 15s linear infinite;
+            font-family: var(--font-display);
+            text-transform: uppercase;
+            font-size: 1.2rem;
+            color: var(--text-muted);
+        }
+
+        @keyframes marquee {
+            0% {
+                transform: translate(0, 0);
             }
 
-            .products-grid {
-                grid-template-columns: 1fr 1fr;
-                gap: 15px;
+            100% {
+                transform: translate(-100%, 0);
+            }
+        }
+
+        /* RESPONSIVE DESKTOP */
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+                /* 4 columnas en PC */
+                gap: 20px;
             }
 
-            /* 2 columnas en móvil */
-            .img-container {
-                height: 200px;
-            }
-
-            /* Imagen más pequeña en móvil */
-            .card-details {
-                padding: 15px;
-            }
-
-            .buy-mini-btn {
-                width: 30px;
-                height: 30px;
+            .p-title {
+                font-size: 0.95rem;
             }
         }
     </style>
@@ -298,149 +283,171 @@
 
 <body>
 
-    <nav>
-        <div class="logo">KYO<span>MU</span></div>
-        <button class="cart-btn" onclick="alert('Funcionalidad de carrito pronto...')">
-            CARRITO (0)
-        </button>
-    </nav>
-
-    <header class="hero">
-        <h1>Wear Your<br>Obsession</h1>
-        <p>Anime. Cómics. Streetwear. La mejor calidad gráfica en tus camisetas.</p>
-        <button class="cta-btn" onclick="document.getElementById('shop-section').scrollIntoView({behavior: 'smooth'})">
-            VER COLECCIÓN
-        </button>
+    <header>
+        <div class="brand">KYOMU.</div>
+        <div class="nav-icons">
+            <a href="#">MXN</a>
+            <a href="#">CARRITO (0)</a>
+        </div>
     </header>
 
-    <section id="shop-section">
-        <div class="filters">
-            <button class="filter-btn active" onclick="filterProducts('all')">Todos</button>
-            <button class="filter-btn" onclick="filterProducts('anime')">Anime</button>
-            <button class="filter-btn" onclick="filterProducts('comics')">Comics</button>
-            <button class="filter-btn" onclick="filterProducts('original')">Originals</button>
-        </div>
-    </section>
+    <nav class="category-bar">
+        <button class="cat-btn active" onclick="filterBy('all')">View All</button>
+        <button class="cat-btn" onclick="filterBy('tees')">T-Shirts</button>
+        <button class="cat-btn" onclick="filterBy('hoodies')">Hoodies</button>
+        <button class="cat-btn" onclick="filterBy('anime')">Anime Icons</button>
+        <button class="cat-btn" onclick="filterBy('comics')">Comics</button>
+    </nav>
 
-    <div class="gallery-container">
-        <div class="products-grid" id="product-grid">
+    <main class="container">
+        <div class="marquee">
+            <span>ENVÍOS GRATIS EN COMPRAS MAYORES A $999 MXN /// NEW DROP AVAILABLE NOW /// KYOMU WORLDWIDE</span>
         </div>
-    </div>
+
+        <div id="product-grid" class="grid">
+        </div>
+    </main>
 
     <footer>
-        <p style="margin-bottom: 10px; font-family: var(--font-title);">KYOMU OFFICIAL</p>
-        <p style="color: #666; font-size: 0.9rem;">Envíos a todo México 🇲🇽</p>
+        <div style="text-transform: uppercase; font-size: 0.8rem; color: #555;">
+            <p>Kyomu Official &copy; 2024</p>
+            <p>Diseñado en México</p>
+        </div>
+        <div style="display: flex; gap: 15px;">
+            <a href="#" style="border-bottom: 1px solid white; padding-bottom: 2px;">Instagram</a>
+            <a href="#" style="border-bottom: 1px solid white; padding-bottom: 2px;">TikTok</a>
+        </div>
     </footer>
 
     <script>
         /* ================================================================
-        AREA DE EDICIÓN FÁCIL
-        Para agregar productos, solo copia un bloque entre { } y cambia los datos.
-        categories disponibles: 'anime', 'comics', 'original'
-        ================================================================
+           BASE DE DATOS EDITABLE
+           Instrucciones:
+           1. Copia un bloque {...}
+           2. Pega después de la coma
+           3. Cambia los datos.
+           
+           IMPORTANTE: Usa imágenes verticales (aspecto 3:4) para mejor look.
+           ================================================================
         */
-        const products = [
+        const inventory = [
             {
                 id: 1,
-                title: "Demon Slayer - Tanjiro Breath",
-                category: "anime",
-                price: "$350.00",
-                image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop" // Pon aquí tu link de foto real
+                name: "EVANGELION UNIT-01 TEE",
+                price: 450,
+                type: "tees",
+                collection: "anime",
+                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop",
+                tag: "Best Seller"
             },
             {
                 id: 2,
-                title: "Spider-Verse Glitch Tee",
-                category: "comics",
-                price: "$380.00",
-                image: "https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000&auto=format&fit=crop"
+                name: "GUTS BERSERKER OVERSIZE",
+                price: 550,
+                type: "tees",
+                collection: "anime",
+                image: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000&auto=format&fit=crop",
+                tag: "Low Stock"
             },
             {
                 id: 3,
-                title: "Kyomu Kanji Minimalist",
-                category: "original",
-                price: "$400.00",
-                image: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000&auto=format&fit=crop"
+                name: "SPIDER-PUNK HOODIE",
+                price: 1200,
+                type: "hoodies",
+                collection: "comics",
+                image: "https://images.unsplash.com/photo-1556905055-8f358a7a47b2?q=80&w=1000&auto=format&fit=crop",
+                tag: ""
             },
             {
                 id: 4,
-                title: "Akira Neo-Tokyo Vibe",
-                category: "anime",
-                price: "$390.00",
-                image: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000&auto=format&fit=crop"
+                name: "AKIRA NEO-TOKYO TEE",
+                price: 450,
+                type: "tees",
+                collection: "anime",
+                image: "https://images.unsplash.com/photo-1503342394128-c104d54dba01?q=80&w=1000&auto=format&fit=crop",
+                tag: "New Arrival"
             },
             {
                 id: 5,
-                title: "Batman The Dark Knight",
-                category: "comics",
-                price: "$360.00",
-                image: "https://images.unsplash.com/photo-1620799140408-ed5341cd2431?q=80&w=1000&auto=format&fit=crop"
+                name: "BATMAN GOTHAM KNIGHT",
+                price: 480,
+                type: "tees",
+                collection: "comics",
+                image: "https://images.unsplash.com/photo-1618354691373-d851c5c3a990?q=80&w=1000&auto=format&fit=crop",
+                tag: ""
             },
             {
                 id: 6,
-                title: "Berserk Eclipse Edition",
-                category: "anime",
-                price: "$420.00",
-                image: "https://images.unsplash.com/photo-1562157873-818bc0726f68?q=80&w=1000&auto=format&fit=crop"
+                name: "JUJUTSU KAISEN DOMAIN",
+                price: 450,
+                type: "tees",
+                collection: "anime",
+                image: "https://images.unsplash.com/photo-1529374255404-311a2a4f1fd9?q=80&w=1000&auto=format&fit=crop",
+                tag: "Sold Out"
             }
         ];
 
-        /* ================================================================
-           LÓGICA DEL SISTEMA (NO NECESITAS TOCAR ESTO A MENOS QUE SEPAS JS)
-           ================================================================ */
+        const gridContainer = document.getElementById('product-grid');
+        const filterButtons = document.querySelectorAll('.cat-btn');
 
-        const grid = document.getElementById('product-grid');
-        const btns = document.querySelectorAll('.filter-btn');
+        // Función Principal de Renderizado
+        function render(filter = 'all') {
+            gridContainer.innerHTML = '';
 
-        // Función para mostrar productos
-        function renderProducts(filter = 'all') {
-            grid.innerHTML = ''; // Limpiar grid
+            const filtered = filter === 'all'
+                ? inventory
+                : inventory.filter(item => item.type === filter || item.collection === filter);
 
-            const filteredData = filter === 'all'
-                ? products
-                : products.filter(p => p.category === filter);
+            filtered.forEach(item => {
+                // Lógica de etiqueta
+                let badgeHTML = '';
+                if (item.tag) {
+                    const colorClass = item.tag === 'Sold Out' || item.tag === 'Low Stock' ? 'badge-red' : '';
+                    badgeHTML = `<span class="badge ${colorClass}">${item.tag}</span>`;
+                }
 
-            filteredData.forEach(product => {
-                const card = document.createElement('article');
+                // Creación de la tarjeta HTML
+                const card = document.createElement('div');
                 card.className = 'product-card';
                 card.innerHTML = `
-                    <div class="img-container">
-                        <img src="${product.image}" alt="${product.title}" loading="lazy">
+                    <div class="image-wrapper">
+                        ${badgeHTML}
+                        <img src="${item.image}" alt="${item.name}" loading="lazy">
                     </div>
-                    <div class="card-details">
-                        <span class="category-tag">${product.category}</span>
-                        <h3 class="product-title">${product.title}</h3>
-                        <div class="price-row">
-                            <span class="price">${product.price}</span>
-                            <button class="buy-mini-btn" onclick="buyProduct('${product.title}')">
-                                +
-                            </button>
-                        </div>
+                    <div class="product-info">
+                        <h3 class="p-title">${item.name}</h3>
+                        <div class="p-price">$${item.price} MXN</div>
+                        <div class="p-meta">${item.collection} Series</div>
+                        <button class="quick-add" onclick="checkout('${item.name}', ${item.price})">
+                            AGREGAR AL CARRITO
+                        </button>
                     </div>
                 `;
-                grid.appendChild(card);
+                gridContainer.appendChild(card);
             });
         }
 
-        // Función de filtrado
-        function filterProducts(category) {
-            // Actualizar estilo de botones
-            btns.forEach(btn => btn.classList.remove('active'));
+        // Sistema de Filtrado
+        function filterBy(criteria) {
+            // Actualizar botones visualmente
+            filterButtons.forEach(btn => btn.classList.remove('active'));
             event.target.classList.add('active');
 
             // Renderizar
-            renderProducts(category);
+            render(criteria);
         }
 
-        // Función de compra (Redirección a WhatsApp)
-        function buyProduct(title) {
-            const phone = "5215555555555"; // CAMBIA ESTO POR EL NUMERO DE KYOMU
-            const text = `Hola Kyomu! Me interesa la camiseta modelo: ${title}`;
-            const url = `https://wa.me/${phone}?text=${encodeURIComponent(text)}`;
-            window.open(url, '_blank');
+        // Sistema de Checkout (WhatsApp Directo)
+        function checkout(name, price) {
+            const phoneNumber = "5215555555555"; // TU NUMERO AQUÍ
+            const message = `Hola Kyomu, quiero comprar: ${name} (Precio: $${price})`;
+
+            const whatsappUrl = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+            window.open(whatsappUrl, '_blank');
         }
 
-        // Cargar todo al inicio
-        renderProducts();
+        // Iniciar
+        render();
 
     </script>
 </body>
