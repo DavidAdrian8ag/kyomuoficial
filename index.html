@@ -6,11 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KYOMU | Urban Bodega</title>
 
-    <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@600;700&display=swap"
         rel="stylesheet">
 
-    <!-- FAVICON -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <style>
@@ -41,8 +39,12 @@
             overflow-x: hidden;
         }
 
-        /* ================= HEADER ================= */
+        /* Ocultar elementos */
+        .hidden {
+            display: none !important;
+        }
 
+        /* ================= HEADER ================= */
         header {
             position: fixed;
             top: 0;
@@ -82,66 +84,32 @@
         }
 
         /* ================= HERO ================= */
-
         .hero {
             min-height: 50vh;
-            /* mantiene fullscreen */
             display: flex;
             justify-content: center;
-            padding: 80px 30px 0px;
-            /* ↓ menos espacio arriba y abajo */
+            padding: 120px 30px 40px;
             text-align: center;
             background:
                 radial-gradient(circle at 20% 20%, rgba(255, 0, 60, 0.15), transparent 40%),
-                repeating-linear-gradient(90deg,
-                    rgba(255, 255, 255, 0.03) 0,
-                    rgba(255, 255, 255, 0.03) 1px,
-                    transparent 1px,
-                    transparent 6px),
+                repeating-linear-gradient(90deg, rgba(255, 255, 255, 0.03) 0, rgba(255, 255, 255, 0.03) 1px, transparent 1px, transparent 6px),
                 #000;
         }
 
-        .hero h1 {
-            font-family: var(--font-display);
-            font-size: clamp(4rem, 18vw, 12rem);
-            line-height: .85;
-            text-transform: uppercase;
-            text-shadow: 0 0 40px rgba(255, 0, 60, 0.25);
-        }
-
-        .hero p {
-            margin-top: 20px;
-            font-size: 0.8rem;
-            letter-spacing: 3px;
-            color: var(--muted);
-            text-transform: uppercase;
-        }
-
-        /* ===== HERO CON LOGO (VERSIÓN FINAL) ===== */
-
         .hero-logo {
             max-width: 520px;
-            /* logo más grande */
             margin: 0 auto;
-            margin-top: 0;
-            margin-bottom: 0;
         }
 
         .hero-logo img {
             width: 100%;
             height: auto;
             display: block;
-
-            /* Glow agresivo */
-            filter:
-                drop-shadow(0 0 20px rgba(255, 0, 60, 0.45)) drop-shadow(0 0 60px rgba(255, 0, 60, 0.25));
-
-            /* Animación */
+            filter: drop-shadow(0 0 20px rgba(255, 0, 60, 0.45)) drop-shadow(0 0 60px rgba(255, 0, 60, 0.25));
             opacity: 0;
             animation: heroLogoFade 1.4s ease forwards;
         }
 
-        /* Animación suave de entrada */
         @keyframes heroLogoFade {
             from {
                 opacity: 0;
@@ -155,7 +123,6 @@
         }
 
         /* ================= TICKER ================= */
-
         .ticker {
             overflow: hidden;
             border-top: 1px solid var(--border);
@@ -166,7 +133,7 @@
         .ticker-track {
             display: flex;
             width: max-content;
-            animation: scroll 18s linear infinite;
+            animation: scroll 25s linear infinite;
         }
 
         .ticker span {
@@ -186,7 +153,6 @@
         }
 
         /* ================= SHOP ================= */
-
         .shop-header {
             padding: 120px 30px 40px;
             text-align: center;
@@ -213,11 +179,13 @@
             font-size: 0.65rem;
             text-transform: uppercase;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .filter-btn.active {
             border-color: var(--text);
             color: var(--text);
+            background: rgba(255, 255, 255, 0.05);
         }
 
         .grid {
@@ -262,8 +230,7 @@
             margin-top: 5px;
         }
 
-        /* ================= SPLIT SECTION ================= */
-
+        /* ================= EVENTS & MANIFESTO ================= */
         .split-section {
             padding: 140px 30px;
             border-top: 1px solid var(--border);
@@ -287,6 +254,7 @@
             opacity: 0;
             transform: translateY(20px);
             transition: .6s ease;
+            text-align: left;
         }
 
         .event.visible {
@@ -312,12 +280,12 @@
 
         .countdown {
             margin-top: 40px;
-            font-size: 1.2rem;
+            font-size: 1.1rem;
             color: var(--accent);
             letter-spacing: 2px;
+            font-family: var(--font-display);
+            text-transform: uppercase;
         }
-
-        /* ================= MANIFESTO ================= */
 
         .manifesto-vibe .tagline {
             display: inline-block;
@@ -330,7 +298,7 @@
 
         .manifesto-vibe h2 {
             font-family: var(--font-display);
-            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            font-size: clamp(2.5rem, 5vw, 4rem);
             line-height: 0.95;
             text-transform: uppercase;
         }
@@ -349,14 +317,6 @@
             color: var(--muted);
         }
 
-        .manifesto-sub {
-            margin-top: 18px;
-            font-size: 0.7rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
         .manifesto-bar {
             width: 80px;
             height: 3px;
@@ -366,12 +326,19 @@
         }
 
         /* ================= FOOTER ================= */
-
         .footer {
             padding: 100px 30px;
             display: grid;
             gap: 60px;
             border-top: 1px solid var(--border);
+            text-align: center;
+        }
+
+        .footer-left,
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
 
         .footer-left h2 {
@@ -405,7 +372,7 @@
         }
 
         .qr-box img {
-            width: 180px;
+            width: 100%;
             border-radius: 8px;
             transition: .4s;
         }
@@ -429,8 +396,14 @@
             background: #050505;
         }
 
+        .footer-right form {
+            width: 100%;
+            max-width: 420px;
+        }
+
         .footer-right input,
-        .footer-right textarea {
+        .footer-right textarea,
+        .footer-right button {
             width: 100%;
             background: none;
             border: none;
@@ -438,18 +411,19 @@
             padding: 18px 0;
             color: white;
             margin-bottom: 20px;
+            text-align: center;
+            font-family: var(--font-main);
         }
 
         .footer-right button {
-            width: 100%;
             background: white;
             color: black;
-            padding: 18px;
             border: none;
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
             cursor: pointer;
+            transition: 0.3s;
         }
 
         .footer-right button:hover {
@@ -458,7 +432,6 @@
         }
 
         /* ================= EFFECTS ================= */
-
         .glitch-text {
             animation: glitch 0.6s linear;
         }
@@ -478,7 +451,6 @@
         }
 
         /* ================= RESPONSIVE ================= */
-
         @media (min-width: 1024px) {
             .grid {
                 grid-template-columns: repeat(4, 1fr);
@@ -505,31 +477,6 @@
                 position: static;
             }
         }
-
-        /* ===== FOOTER CENTRADO ===== */
-
-        .footer {
-            text-align: center;
-        }
-
-        .footer-left,
-        .footer-right {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-
-        /* Inputs y form centrados */
-        .footer-right form {
-            width: 100%;
-            max-width: 420px;
-        }
-
-        .footer-right input,
-        .footer-right textarea,
-        .footer-right button {
-            text-align: center;
-        }
     </style>
 </head>
 
@@ -550,19 +497,13 @@
         </div>
     </section>
 
-
     <div class="ticker">
         <div class="ticker-track">
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
         </div>
     </div>
 
@@ -578,36 +519,24 @@
 
     <div class="grid" id="product-grid"></div>
 
-        <div class="ticker">
-        <div class="ticker-track">
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-        </div>
-    </div>
-
     <section class="split-section" id="events">
-
         <div>
             <h2>Encuéntranos en<br><span style="color:var(--accent)">eventos</span></h2>
-            <div class="countdown" id="countdown"></div>
+
+            <div class="countdown" id="countdown">Iniciando...</div>
 
             <div class="event-list">
-                <div class="event">
+                <div class="event" data-date="2026-01-31T09:00:00">
+
+                    <!-- Para cambiar el contador: Ve a la línea 214 y cambia el valor de data-date="2026-01-31T09:00:00". No necesitas tocar nada más. -->
+
+
                     <p class="date">31 · Ene · 2026 - 01 · Feb · 2026</p>
                     <h3>Expo Kipon</h3>
                     <p>WTC, Veracruz, MX</p>
-                    <a href="https://maps.app.goo.gl/sBZgk5Z9sPshkNTj7" target="_blank">
-                        Ver ubicación
-                    </a>
+                    <a href="#" target="_blank">Ver ubicación</a>
                 </div>
+
                 <div class="event">
                     <p class="date">02 · NOV · 2026</p>
                     <h3>Street Art Expo</h3>
@@ -620,26 +549,9 @@
             <span class="tagline">KYOMU MANIFESTO</span>
             <h2>No es solo ropa<br>es tu <span class="accent">otra piel</span></h2>
             <p class="manifesto-lead">Archivo urbano nacido del anime y la cultura street.</p>
-            <p class="manifesto-sub">Producción limitada · Sin reglas</p>
             <div class="manifesto-bar"></div>
         </div>
-
     </section>
-
-        <div class="ticker">
-        <div class="ticker-track">
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-        </div>
-    </div>
 
     <footer class="footer" id="contact">
         <div class="footer-left">
@@ -647,7 +559,7 @@
             <a class="ig" href="https://instagram.com/kyomuoficial" target="_blank">@kyomuoficial</a>
             <a class="wa" href="https://wa.me/522299098292" target="_blank">WA · 229 909 8292</a>
             <div class="qr-box">
-                <img src="qrwa.png">
+                <img src="qrwa.png" alt="QR WhatsApp">
                 <p>Escanea para cotizar</p>
             </div>
         </div>
@@ -663,6 +575,7 @@
     </footer>
 
     <script>
+        // 1. GESTIÓN DE PRODUCTOS
         const products = [
             { name: "Guts Eclipse Tee", price: "$450 MXN", cat: "anime", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000" },
             { name: "Spider-Gwen Synth", price: "$450 MXN", cat: "comics", img: "https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000" },
@@ -676,42 +589,68 @@
 
             items.forEach(p => {
                 grid.innerHTML += `
-            <div class="card">
-                <div class="img-box"><img src="${p.img}"></div>
-                <div class="card-info">
-                    <h3>${p.name}</h3>
-                    <p>${p.price}</p>
-                </div>
-            </div>`;
+                    <div class="card">
+                        <div class="img-box"><img src="${p.img}"></div>
+                        <div class="card-info">
+                            <h3>${p.name}</h3>
+                            <p>${p.price}</p>
+                        </div>
+                    </div>`;
             });
         }
 
         function filterBy(cat, el) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             el.classList.add('active');
-            document.querySelector('.shop-header h2').classList.add('glitch-text');
-            setTimeout(() => document.querySelector('.shop-header h2').classList.remove('glitch-text'), 600);
+            const h2 = document.querySelector('.shop-header h2');
+            h2.classList.add('glitch-text');
+            setTimeout(() => h2.classList.remove('glitch-text'), 600);
             renderProducts(cat);
         }
 
         renderProducts();
 
+        // 2. ANIMACIÓN DE EVENTOS AL HACER SCROLL
         const observer = new IntersectionObserver(entries => {
-            entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
+            entries.forEach(e => {
+                if (e.isIntersecting) e.target.classList.add('visible');
+            });
         }, { threshold: 0.3 });
-
         document.querySelectorAll('.event').forEach(e => observer.observe(e));
 
-        const eventDate = new Date("2026-01-31T09:00:00").getTime();
-        setInterval(() => {
-            const diff = eventDate - Date.now();
-            if (diff < 0) return;
-            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
-            const m = Math.floor((diff / (1000 * 60)) % 60);
-            document.getElementById("countdown").textContent =
-                `Próximo evento en ${d} días · ${h} hrs · ${m} min`;
-        }, 1000);
+        // 3. CONTADOR DINÁMICO CON AUTOCULTADO
+        function initCountdown() {
+            const firstEvent = document.querySelector('.event[data-date]');
+            const display = document.getElementById("countdown");
+
+            if (!firstEvent || !display) return;
+
+            const targetDate = new Date(firstEvent.dataset.date).getTime();
+
+            const update = () => {
+                const now = new Date().getTime();
+                const diff = targetDate - now;
+
+                // Si la fecha ya pasó, ocultamos el contador
+                if (diff <= 0) {
+                    display.classList.add('hidden');
+                    // Opcional: Ocultar también la tarjeta del evento si ya pasó
+                    // firstEvent.classList.add('hidden');
+                    return clearInterval(timer);
+                }
+
+                const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+                const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+                const m = Math.floor((diff / (1000 * 60)) % 60);
+
+                display.textContent = `Próximo evento en ${d}d · ${h}h · ${m}m`;
+            };
+
+            const timer = setInterval(update, 1000);
+            update();
+        }
+
+        initCountdown();
     </script>
 
 </body>
