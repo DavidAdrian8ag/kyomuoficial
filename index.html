@@ -4,16 +4,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYOMU | Paradigm Shift Apparel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;800&family=Oswald:wght@700&display=swap"
+    <title>KYOMU | Urban Archive</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@600;700&display=swap"
         rel="stylesheet">
 
     <style>
         :root {
-            --bg: #000000;
-            --text: #ffffff;
+            --bg: #000;
+            --text: #fff;
+            --muted: #777;
             --accent: #ff003c;
-            /* Un rojo eléctrico para resaltar */
             --border: #1a1a1a;
             --font-main: 'Inter', sans-serif;
             --font-display: 'Oswald', sans-serif;
@@ -29,105 +30,168 @@
             background: var(--bg);
             color: var(--text);
             font-family: var(--font-main);
-            line-height: 1.6;
             overflow-x: hidden;
         }
 
-        /* --- HEADER --- */
+        /* HEADER */
         header {
             position: fixed;
             top: 0;
             width: 100%;
             z-index: 1000;
-            padding: 20px;
+            padding: 20px 30px;
             display: flex;
             justify-content: space-between;
-            background: rgba(0, 0, 0, 0.8);
+            align-items: center;
+            background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(10px);
             border-bottom: 1px solid var(--border);
         }
 
         .logo {
             font-family: var(--font-display);
-            font-size: 1.5rem;
             letter-spacing: 4px;
+            font-size: 1.4rem;
         }
 
-        /* --- HERO IMPACT SECTION --- */
+        nav a {
+            margin-left: 20px;
+            font-size: 0.7rem;
+            text-transform: uppercase;
+            color: var(--muted);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        nav a:hover {
+            color: var(--text);
+        }
+
+        /* HERO — SOLO TEXTO */
         .hero {
             height: 100vh;
             display: flex;
-            flex-direction: column;
-            justify-content: center;
             align-items: center;
-            text-align: center;
-            background: linear-gradient(to bottom, rgba(0, 0, 0, 0.2), #000),
-                url('https://images.unsplash.com/photo-1614850523296-d8c1af93d400?q=80&w=1470&auto=format&fit=crop');
-            /* Imagen de textura cyber/grunge */
-            background-size: cover;
-            background-position: center;
-            padding: 20px;
+            padding: 0 30px;
+            background:
+                radial-gradient(circle at 20% 20%, rgba(255, 0, 60, 0.15), transparent 40%),
+                repeating-linear-gradient(90deg,
+                    rgba(255, 255, 255, 0.03) 0,
+                    rgba(255, 255, 255, 0.03) 1px,
+                    transparent 1px,
+                    transparent 6px),
+                #000;
         }
 
         .hero h1 {
             font-family: var(--font-display);
-            font-size: clamp(3rem, 15vw, 10rem);
-            line-height: 0.8;
+            font-size: clamp(4rem, 18vw, 12rem);
+            line-height: .85;
             text-transform: uppercase;
-            margin-bottom: 20px;
-            letter-spacing: -2px;
+            text-shadow: 0 0 40px rgba(255, 0, 60, 0.25);
         }
 
         .hero p {
-            max-width: 500px;
-            font-weight: 300;
+            margin-top: 20px;
+            font-size: 0.8rem;
+            letter-spacing: 3px;
+            color: var(--muted);
             text-transform: uppercase;
-            letter-spacing: 2px;
-            font-size: 0.9rem;
-            color: #888;
         }
 
-        /* --- MANIFESTO SECTION --- */
+        /* TIRA MARQUEE */
+        .ticker {
+            overflow: hidden;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            background: #050505;
+        }
+
+        .ticker-track {
+            display: flex;
+            width: max-content;
+            animation: scroll 18s linear infinite;
+        }
+
+        .ticker span {
+            font-family: var(--font-display);
+            font-size: 1.2rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            padding: 20px 40px;
+            white-space: nowrap;
+            color: var(--accent);
+        }
+
+        @keyframes scroll {
+            from {
+                transform: translateX(0);
+            }
+
+            to {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* MANIFESTO */
         .manifesto {
-            padding: 100px 20px;
-            text-align: center;
+            padding: 120px 30px;
             border-bottom: 1px solid var(--border);
         }
 
         .manifesto h2 {
-            font-size: 2rem;
+            font-family: var(--font-display);
+            font-size: 3rem;
             text-transform: uppercase;
-            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
         }
 
         .manifesto span {
             color: var(--accent);
         }
 
-        /* --- GALLERY CONTROL --- */
+        .manifesto p {
+            margin-top: 30px;
+            max-width: 600px;
+            color: var(--muted);
+            font-size: 0.9rem;
+            margin-left: auto;
+            margin-right: auto;
+            text-align: center;
+        }
+
+        /* SHOP */
         .shop-header {
-            padding: 40px 20px;
+            padding: 120px 30px 40px;
+        }
+
+        .shop-header h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            text-transform: uppercase;
+            margin-left: auto;
+            margin-right: auto;
             text-align: center;
         }
 
         .filter-nav {
             display: flex;
-            justify-content: center;
             gap: 10px;
-            margin-top: 20px;
-            overflow-x: auto;
-            padding-bottom: 10px;
+            justify-content: center;
+            margin-top: 40px;
         }
 
         .filter-btn {
             background: none;
             border: 1px solid var(--border);
-            color: #555;
+            color: var(--muted);
             padding: 8px 20px;
+            font-size: 0.65rem;
             text-transform: uppercase;
-            font-size: 0.7rem;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         .filter-btn.active {
@@ -135,99 +199,89 @@
             color: var(--text);
         }
 
-        /* --- GRID (ESTILO LVCRECIA) --- */
+        /* GRID */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-            padding: 10px;
+            gap: 30px;
+            padding: 40px 30px 100px;
         }
 
         .card {
-            margin-bottom: 30px;
+            border-top: 1px solid var(--border);
+            padding-top: 15px;
         }
 
         .img-box {
             aspect-ratio: 3/4;
             background: #0a0a0a;
             overflow: hidden;
-            position: relative;
-            margin-bottom: 10px;
+            margin-bottom: 15px;
         }
 
         .img-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transition: 0.5s;
+            transition: .6s;
         }
 
         .card:hover img {
-            transform: scale(1.05);
-        }
-
-        .card-info {
-            padding: 5px;
+            transform: scale(1.08);
         }
 
         .card-info h3 {
-            font-size: 0.8rem;
+            font-size: 0.75rem;
             text-transform: uppercase;
-            font-weight: 600;
+            letter-spacing: 1px;
         }
 
         .card-info p {
-            font-size: 0.8rem;
-            color: #777;
+            font-size: 0.7rem;
+            color: var(--muted);
+            margin-top: 5px;
         }
 
-        /* --- CONTACT & CUSTOM ORDERS --- */
+        /* CONTACT */
         .contact-section {
-            padding: 100px 20px;
+            padding: 120px 30px;
             background: #050505;
             display: grid;
-            grid-template-columns: 1fr;
-            gap: 50px;
+            gap: 60px;
         }
 
         .contact-info h2 {
             font-family: var(--font-display);
             font-size: 3rem;
             text-transform: uppercase;
-            line-height: 1;
         }
 
-        .contact-form {
-            display: flex;
-            flex-direction: column;
-            gap: 20px;
+        .contact-info p {
+            margin-top: 30px;
+            color: var(--muted);
+            max-width: 500px;
         }
 
-        .form-group input,
-        .form-group textarea {
+        .contact-form input,
+        .contact-form textarea {
             width: 100%;
             background: none;
             border: none;
             border-bottom: 1px solid var(--border);
             padding: 15px 0;
             color: white;
-            font-family: inherit;
             outline: none;
-        }
-
-        .form-group input:focus {
-            border-bottom-color: var(--accent);
+            margin-bottom: 20px;
         }
 
         .submit-btn {
             background: white;
             color: black;
             border: none;
-            padding: 20px;
+            padding: 18px;
+            font-weight: 700;
             text-transform: uppercase;
-            font-weight: 800;
             cursor: pointer;
-            transition: 0.3s;
         }
 
         .submit-btn:hover {
@@ -235,31 +289,279 @@
             color: white;
         }
 
-        /* --- FOOTER --- */
         footer {
-            padding: 50px 20px;
-            border-top: 1px solid var(--border);
+            padding: 50px;
             text-align: center;
             font-size: 0.7rem;
             color: #444;
+            border-top: 1px solid var(--border);
         }
 
-        /* --- DESKTOP ADJUSTS --- */
         @media (min-width: 1024px) {
             .grid {
                 grid-template-columns: repeat(4, 1fr);
-                gap: 20px;
-                padding: 40px;
             }
 
             .contact-section {
                 grid-template-columns: 1fr 1fr;
-                padding: 100px 10%;
+            }
+        }
+
+        .glitch-text {
+            position: relative;
+            animation: glitch 0.6s linear;
+        }
+
+        @keyframes glitch {
+            0% {
+                transform: translate(0);
             }
 
-            .hero h1 {
-                font-size: 12rem;
+            20% {
+                transform: translate(-2px, 1px);
             }
+
+            40% {
+                transform: translate(2px, -1px);
+            }
+
+            60% {
+                transform: translate(-1px, 2px);
+            }
+
+            80% {
+                transform: translate(1px, -2px);
+            }
+
+            100% {
+                transform: translate(0);
+            }
+        }
+
+
+        .events-section {
+            padding: 120px 30px;
+            border-top: 1px solid var(--border);
+        }
+
+        .events-section h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            text-transform: uppercase;
+        }
+
+        .events-section span {
+            color: var(--accent);
+        }
+
+        .event-list {
+            margin-top: 60px;
+            display: grid;
+            gap: 40px;
+        }
+
+        .event {
+            border-left: 3px solid var(--accent);
+            padding-left: 20px;
+        }
+
+        .event .date {
+            font-size: 0.7rem;
+            color: var(--muted);
+        }
+
+        .event h3 {
+            text-transform: uppercase;
+            margin: 5px 0;
+        }
+
+        .event a {
+            font-size: 0.7rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer {
+            padding: 100px 30px;
+            display: grid;
+            gap: 60px;
+            border-top: 1px solid var(--border);
+            background: #000;
+        }
+
+        .footer-left h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+        }
+
+        .footer-left a {
+            display: block;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer-right input,
+        .footer-right textarea {
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--border);
+            padding: 15px 0;
+            color: white;
+            margin-bottom: 20px;
+        }
+
+        .footer-right button {
+            background: white;
+            color: black;
+            padding: 15px;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        @media (min-width: 1024px) {
+            .footer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        /* CENTRADO EDITORIAL */
+        .centered {
+            max-width: 1100px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        /* Logo centrado */
+        header {
+            justify-content: center;
+        }
+
+        nav {
+            position: absolute;
+            right: 30px;
+        }
+
+        /* Títulos centrados */
+        .manifesto,
+        .shop-header,
+        .events-section {
+            text-align: center;
+        }
+
+        /* Ajustes internos */
+        .manifesto p,
+        .events-section .event-list {
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .event {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .6s ease;
+        }
+
+        .event.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .countdown {
+            margin-top: 40px;
+            font-size: 1.2rem;
+            color: var(--accent);
+            letter-spacing: 2px;
+        }
+
+        .ig-feed {
+            padding: 120px 30px;
+        }
+
+        .ig-feed h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+            margin-bottom: 40px;
+        }
+
+        .ig-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 20px;
+        }
+
+        .ig-grid div {
+            aspect-ratio: 1 / 1;
+            background:
+                linear-gradient(135deg, #111, #000);
+            border: 1px solid var(--border);
+        }
+
+        @media (min-width: 1024px) {
+            .ig-grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+        }
+
+        .hero {
+            justify-content: center;
+            text-align: center;
+        }
+
+        .hero>div {
+            max-width: 1100px;
+        }
+
+        .qr-box {
+            margin: 30px auto 0;
+            max-width: 160px;
+            text-align: center;
+        }
+
+
+        .qr-box img {
+            transition: transform .3s ease, box-shadow .3s ease;
+        }
+
+        .qr-box img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.3);
+        }
+
+
+        .qr-box p {
+            margin-top: 10px;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .ig-link {
+            color: inherit;
+            text-decoration: none;
+            position: relative;
+        }
+
+        .ig-link::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -6px;
+            width: 100%;
+            height: 2px;
+            background: var(--accent);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform .4s ease;
+        }
+
+        .ig-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: left;
         }
     </style>
 </head>
@@ -268,111 +570,252 @@
 
     <header>
         <div class="logo">KYOMU.</div>
-        <div style="font-size: 0.7rem; font-weight: 800;">MENU</div>
+        <nav>
+            <a href="#shop">Archive</a>
+            <a href="#contact">Custom</a>
+        </nav>
     </header>
 
-    <section class="hero">
-        <p>Beyond the canvas</p>
-        <h1>KYOMU</h1>
-        <p>Cultura Anime & Comics materializada en hilos. Diseños sin fronteras.</p>
-    </section>
+    <section class="hero centered">
 
-    <section class="manifesto">
-        <h2>NO ES SOLO UNA TEE.<br>ES TU <span>NUEVA PIEL.</span></h2>
-        <p style="max-width: 600px; margin: 0 auto; color: #666;">
-            Curaduría de arte japonés y narrativa gráfica. Si lo puedes imaginar, lo podemos estampar.
-            Calidad premium garantizada.
-        </p>
-    </section>
-
-    <section class="shop-header" id="shop">
-        <h2 style="font-family: var(--font-display); font-size: 2rem;">THE ARCHIVE</h2>
-        <div class="filter-nav">
-            <button class="filter-btn active" onclick="filterBy('all')">All</button>
-            <button class="filter-btn" onclick="filterBy('anime')">Anime</button>
-            <button class="filter-btn" onclick="filterBy('comics')">Comics</button>
-            <button class="filter-btn" onclick="filterBy('custom')">Customs</button>
+        <div>
+            <h1>KYOMU</h1>
+            <p>Después de imaginarlo, lo estampamos</p>
         </div>
     </section>
 
-    <div class="grid" id="product-grid">
+    <div class="ticker">
+        <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+        </div>
     </div>
 
-    <section class="contact-section">
-        <div class="contact-info">
-            <h2>¿Tienes un<br>diseño en<br>mente?</h2>
-            <p style="margin-top: 20px; color: #888;">Estamos abiertos a cualquier diseño personalizado. Cuéntanos tu
-                idea y nuestro equipo de diseño la hará realidad para tu próxima camiseta favorita.</p>
-            <div style="margin-top: 40px;">
-                <p style="font-size: 0.8rem; color: var(--accent);">IG: @kyomuoficial</p>
-                <p style="font-size: 0.8rem;">Veracruz, México.</p>
-            </div>
-        </div>
+    <section class="events-section centered">
+        <h2>Encuéntranos en<br><span>los siguientes eventos</span></h2>
+        <div class="countdown" id="countdown"></div>
 
-        <div class="contact-form">
-            <div class="form-group">
-                <input type="text" id="name" placeholder="NOMBRE COMPLETO">
+        <div class="event-list">
+
+            <div class="event">
+                <p class="date">12 · OCT · 2026</p>
+                <h3>Urban Anime Fest</h3>
+                <p>Veracruz, MX</p>
+                <a href="https://maps.google.com/?q=Veracruz" target="_blank">Ver ubicación</a>
             </div>
-            <div class="form-group">
-                <input type="email" id="email" placeholder="EMAIL">
+
+            <div class="event">
+                <p class="date">02 · NOV · 2026</p>
+                <h3>Street Art Expo</h3>
+                <p>Puebla, MX</p>
+                <a href="https://maps.google.com/?q=Puebla" target="_blank">Ver ubicación</a>
             </div>
-            <div class="form-group">
-                <textarea id="message" rows="4" placeholder="DESCRIBE TU DISEÑO O CONSULTA"></textarea>
-            </div>
-            <button class="submit-btn" onclick="sendInquiry()">Enviar Solicitud</button>
+
         </div>
     </section>
 
-    <footer>
-        <p>KYOMU &copy; 2025 | ALL RIGHTS RESERVED</p>
+    <section class="manifesto centered">
+        <h2>No es solo ropa.<br>Es tu <span>otra piel</span>.</h2>
+        <p>Archivo urbano inspirado en anime, narrativa gráfica y cultura street.
+            Producción limitada. Sin reglas.</p>
+    </section>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+        </div>
+    </div>
+
+    <section class="shop-header centered" id="shop">
+        <h2>The Archive</h2>
+        <div class="filter-nav">
+            <button class="filter-btn active" onclick="filterBy('all', this)">All</button>
+            <button class="filter-btn" onclick="filterBy('anime', this)">Anime</button>
+            <button class="filter-btn" onclick="filterBy('comics', this)">Comics</button>
+            <button class="filter-btn" onclick="filterBy('custom', this)">Custom</button>
+        </div>
+    </section>
+
+    <div class="grid" id="product-grid"></div>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+        </div>
+    </div>
+
+    <section class="ig-feed centered" id="instagram">
+        <h2>
+            <a href="https://www.instagram.com/kyomuoficial?igsh=bXFidm02NjlzeDVi" target="_blank" class="ig-link">
+                @kyomuoficial
+            </a>
+        </h2>
+
+
+        <div class="ig-grid">
+            <div></div>
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="footer-left">
+            <h2>KYOMU</h2>
+
+            <a class="ig" href="https://www.instagram.com/kyomuoficial?igsh=bXFidm02NjlzeDVi" target="_blank">
+                @kyomuoficial
+            </a>
+
+
+
+            <a class="wa"
+                href="https://wa.me/522233554466?text=hola%20buen%20día,%20me%20gustaría%20cotizar%20un%20diseño"
+                target="_blank">
+                WhatsApp · 223 355 4466
+            </a>
+
+            <div class="qr-box">
+                <img src="https://api.qrserver.com/v1/create-qr-code/?size=200x200&data=https://wa.me/522233554466"
+                    alt="QR WhatsApp KYOMU">
+                <p>Escanea para cotizar</p>
+            </div>
+
+
+            <p>Diseño, arte y cultura urbana.</p>
+        </div>
+
+        <div class="footer-right">
+            <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
+                <input type="text" name="name" placeholder="Nombre" required>
+                <input type="tel" name="phone" placeholder="Teléfono" required>
+                <input type="email" name="email" placeholder="Correo" required>
+                <textarea name="message" placeholder="Platícame tu idea" required></textarea>
+                <button type="submit">Enviar</button>
+            </form>
+        </div>
     </footer>
+
 
     <script>
         const products = [
-            { id: 1, name: "Guts Eclipse Black Tee", price: "$450", cat: "anime", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000" },
-            { id: 2, name: "Spider-Gwen Synth Tee", price: "$450", cat: "comics", img: "https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000" },
-            { id: 3, name: "Kyomu Custom Design", price: "$500", cat: "custom", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000" },
-            { id: 4, name: "Naruto Sage Mode", price: "$450", cat: "anime", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000" },
-            // Agrega más aquí...
+            { name: "Guts Eclipse Tee", price: "$450 MXN", cat: "anime", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000" },
+            { name: "Spider-Gwen Synth", price: "$450 MXN", cat: "comics", img: "https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000" },
+            { name: "Custom KYOMU", price: "$500 MXN", cat: "custom", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000" },
+            { name: "Naruto Sage Mode", price: "$450 MXN", cat: "anime", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000" }
         ];
 
         function renderProducts(filter = 'all') {
             const grid = document.getElementById('product-grid');
             grid.innerHTML = '';
-
             const items = filter === 'all' ? products : products.filter(p => p.cat === filter);
 
             items.forEach(p => {
                 grid.innerHTML += `
-                    <div class="card">
-                        <div class="img-box">
-                            <img src="${p.img}" alt="${p.name}">
-                        </div>
-                        <div class="card-info">
-                            <h3>${p.name}</h3>
-                            <p>${p.price} MXN</p>
-                        </div>
-                    </div>
-                `;
+            <div class="card">
+                <div class="img-box">
+                    <img src="${p.img}">
+                </div>
+                <div class="card-info">
+                    <h3>${p.name}</h3>
+                    <p>${p.price}</p>
+                </div>
+            </div>`;
             });
         }
 
-        function filterBy(cat) {
-            document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-            event.target.classList.add('active');
+        function filterBy(cat, el) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
             renderProducts(cat);
         }
 
         function sendInquiry() {
             const name = document.getElementById('name').value;
             const msg = document.getElementById('message').value;
-            const phone = "5215555555555"; // TU WHATSAPP REAL
-            const text = `Hola! Soy ${name}. Quiero un pedido personalizado: ${msg}`;
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(text)}`, '_blank');
+            const phone = "5215555555555";
+            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(`Soy ${name}. ${msg}`)}`, '_blank');
         }
 
         renderProducts();
+
+
+
+
+        const glitchTargets = document.querySelectorAll(
+            "section h1, section h2"
+        );
+
+        const glitchObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("glitch-text");
+
+                    setTimeout(() => {
+                        entry.target.classList.remove("glitch-text");
+                    }, 600);
+                }
+            });
+        }, { threshold: 0.6 });
+
+        glitchTargets.forEach(el => glitchObserver.observe(el));
+
+
+
+
+        // Animar eventos
+        const events = document.querySelectorAll(".event");
+
+        const eventObserver = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                }
+            });
+        }, { threshold: 0.3 });
+
+        events.forEach(e => eventObserver.observe(e));
+
+        // Countdown próximo evento
+        const eventDate = new Date("2026-09-23T10:00:00").getTime();
+        const countdownEl = document.getElementById("countdown");
+
+        setInterval(() => {
+            const now = new Date().getTime();
+            const diff = eventDate - now;
+
+            if (diff < 0) return;
+
+            const d = Math.floor(diff / (1000 * 60 * 60 * 24));
+            const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
+            const m = Math.floor((diff / (1000 * 60)) % 60);
+
+            countdownEl.textContent =
+                `Próximo evento en ${d} días · ${h} hrs · ${m} min`;
+
+        }, 1000);
+
+        function filterBy(cat, el) {
+            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            el.classList.add('active');
+
+            document.querySelector('.shop-header h2').classList.add('glitch-text');
+            setTimeout(() => {
+                document.querySelector('.shop-header h2').classList.remove('glitch-text');
+            }, 600);
+
+            renderProducts(cat);
+        }
+
     </script>
+
 </body>
 
 </html>
