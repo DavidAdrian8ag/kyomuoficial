@@ -534,6 +534,49 @@
             transform: scaleX(1);
             transform-origin: left;
         }
+
+        /* ============================
+   SPLIT SECTION (EVENTOS + MANIFESTO)
+============================ */
+
+        .split-section {
+            padding: 140px 30px;
+            border-top: 1px solid var(--border);
+            display: grid;
+            gap: 80px;
+        }
+
+        /* Columnas */
+        .split-col {
+            text-align: center;
+        }
+
+        /* Ajustes internos */
+        .events-col .event-list {
+            margin: 60px auto 0;
+            max-width: 400px;
+        }
+
+        .manifesto-col p {
+            margin: 30px auto 0;
+            max-width: 420px;
+            color: var(--muted);
+        }
+
+        /* Desktop layout */
+        @media (min-width: 1024px) {
+            .split-section {
+                max-width: 1200px;
+                margin: 0 auto;
+                grid-template-columns: 1fr 1fr;
+                align-items: center;
+            }
+
+            .events-col,
+            .manifesto-col {
+                padding: 0 40px;
+            }
+        }
     </style>
 </head>
 
@@ -564,42 +607,7 @@
         </div>
     </div>
 
-    <section class="events-section centered">
-        <h2>Encuéntranos en<br><span>los siguientes eventos</span></h2>
-        <div class="countdown" id="countdown"></div>
 
-        <div class="event-list">
-
-            <div class="event">
-                <p class="date">12 · OCT · 2026</p>
-                <h3>Urban Anime Fest</h3>
-                <p>Veracruz, MX</p>
-                <a href="https://maps.google.com/?q=Veracruz" target="_blank">Ver ubicación</a>
-            </div>
-
-            <div class="event">
-                <p class="date">02 · NOV · 2026</p>
-                <h3>Street Art Expo</h3>
-                <p>Puebla, MX</p>
-                <a href="https://maps.google.com/?q=Puebla" target="_blank">Ver ubicación</a>
-            </div>
-
-        </div>
-    </section>
-
-    <section class="manifesto centered">
-        <h2>No es solo ropa.<br>Es tu <span>otra piel</span>.</h2>
-        <p>Archivo urbano inspirado en anime, narrativa gráfica y cultura street.
-            Producción limitada. Sin reglas.</p>
-    </section>
-
-    <div class="ticker">
-        <div class="ticker-track">
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
-        </div>
-    </div>
 
     <section class="shop-header centered" id="shop">
         <h2>The Archive</h2>
@@ -612,6 +620,58 @@
     </section>
 
     <div class="grid" id="product-grid"></div>
+
+    <div class="ticker">
+        <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+        </div>
+    </div>
+
+
+    <section class="split-section">
+
+        <!-- COLUMNA IZQUIERDA -->
+        <div class="split-col events-col">
+            <h2>Encuéntranos en<br><span>los siguientes eventos</span></h2>
+
+            <div class="countdown" id="countdown"></div>
+
+            <div class="event-list">
+
+                <div class="event">
+                    <p class="date">12 · OCT · 2026</p>
+                    <h3>Urban Anime Fest</h3>
+                    <p>Veracruz, MX</p>
+                    <a href="https://maps.google.com/?q=Veracruz" target="_blank">
+                        Ver ubicación
+                    </a>
+                </div>
+
+                <div class="event">
+                    <p class="date">02 · NOV · 2026</p>
+                    <h3>Street Art Expo</h3>
+                    <p>Puebla, MX</p>
+                    <a href="https://maps.google.com/?q=Puebla" target="_blank">
+                        Ver ubicación
+                    </a>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- COLUMNA DERECHA -->
+        <div class="split-col manifesto-col">
+            <h2>No es solo ropa.<br>Es tu <span>otra piel</span>.</h2>
+            <p>
+                Archivo urbano inspirado en anime, narrativa gráfica y cultura street.
+                Producción limitada. Sin reglas.
+            </p>
+        </div>
+
+    </section>
+
 
     <div class="ticker">
         <div class="ticker-track">
