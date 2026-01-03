@@ -591,7 +591,7 @@
             font-family: var(--font-display);
             font-size: 2rem;
             /* tamaño grande */
-            letter-spacing: 2px;
+            letter-spacing: 1.6px;
             text-transform: uppercase;
         }
 
@@ -601,6 +601,32 @@
 
         .footer-left .wa:hover {
             text-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
+        }
+
+        /* =========================
+   NAV RESPONSIVE (MOBILE)
+========================= */
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+                padding: 20px;
+            }
+
+            nav {
+                position: static;
+                display: flex;
+                gap: 25px;
+            }
+
+            nav a {
+                border-bottom: 1px solid transparent;
+                padding-bottom: 4px;
+            }
+
+            nav a:hover {
+                border-color: var(--accent);
+            }
         }
     </style>
 
@@ -640,9 +666,9 @@
     </div>
 
     <section class="shop-header centered" id="shop">
-        <h2>The Bodega</h2>
+        <h2>La Bodega</h2>
         <div class="filter-nav">
-            <button class="filter-btn active" onclick="filterBy('all', this)">All</button>
+            <button class="filter-btn active" onclick="filterBy('all', this)">Todo</button>
             <button class="filter-btn" onclick="filterBy('anime', this)">Anime</button>
             <button class="filter-btn" onclick="filterBy('comics', this)">Comics</button>
             <button class="filter-btn" onclick="filterBy('custom', this)">Custom</button>
