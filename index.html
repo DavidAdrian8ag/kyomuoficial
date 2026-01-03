@@ -631,6 +631,99 @@
                 border-color: var(--accent);
             }
         }
+
+        /* =========================
+   MANIFESTO VIBRANTE
+========================= */
+
+        .manifesto-vibe {
+            position: relative;
+        }
+
+        .manifesto-vibe .tagline {
+            display: inline-block;
+            font-size: 0.65rem;
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 25px;
+        }
+
+        .manifesto-vibe h2 {
+            font-family: var(--font-display);
+            font-size: clamp(2.8rem, 5vw, 4.2rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+        }
+
+        .manifesto-vibe h2 span {
+            color: var(--text);
+        }
+
+        .manifesto-vibe h2 .accent {
+            color: var(--accent);
+            text-shadow: 0 0 30px rgba(255, 0, 60, 0.35);
+        }
+
+        .manifesto-lead {
+            margin-top: 30px;
+            font-size: 1rem;
+            max-width: 420px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .manifesto-sub {
+            margin-top: 18px;
+            font-size: 0.7rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
+
+        .manifesto-bar {
+            width: 80px;
+            height: 3px;
+            background: var(--accent);
+            margin: 40px auto 0;
+            box-shadow: 0 0 20px rgba(255, 0, 60, 0.4);
+        }
+
+        /* =========================
+   FORMULARIO – CARD EDITORIAL
+========================= */
+
+        .footer-right {
+            border: 1px solid var(--border);
+            padding: 50px 40px;
+            background: #050505;
+        }
+
+        .footer-right form {
+            max-width: 480px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .footer-right input,
+        .footer-right textarea {
+            font-size: 0.9rem;
+            padding: 18px 0;
+        }
+
+        .footer-right textarea {
+            min-height: 120px;
+            resize: none;
+        }
+
+        .footer-right button {
+            margin-top: 15px;
+            padding: 18px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            width: 100%;
+        }
     </style>
 
 </head>
@@ -725,12 +818,24 @@
         </div>
 
         <!-- COLUMNA DERECHA -->
-        <div class="split-col manifesto-col">
-            <h2>No es solo ropa.<br>Es tu <span>otra piel</span>.</h2>
-            <p>
-                Archivo urbano inspirado en anime, narrativa gráfica y cultura street.
-                Producción limitada. Sin reglas.
+        <div class="split-col manifesto-col manifesto-vibe">
+            <span class="tagline">KYOMU MANIFESTO</span>
+
+            <h2>
+                No es solo <span>ropa</span><br>
+                es tu <span class="accent">otra piel</span>
+            </h2>
+
+            <p class="manifesto-lead">
+                Archivo urbano nacido del anime, la narrativa gráfica
+                y la cultura street japonesa.
             </p>
+
+            <p class="manifesto-sub">
+                Producción limitada · Sin reglas · Hecho para los que no encajan
+            </p>
+
+            <div class="manifesto-bar"></div>
         </div>
 
     </section>
