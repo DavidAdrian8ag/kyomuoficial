@@ -2,14 +2,15 @@
 <html lang="es">
 
 <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KYOMU | Urban Bodega</title>
 
+    <!-- FONTS -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@600;700&display=swap"
         rel="stylesheet">
 
+    <!-- FAVICON -->
     <link rel="icon" href="/favicon.ico" type="image/x-icon">
 
     <style>
@@ -29,6 +30,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             background: var(--bg);
             color: var(--text);
@@ -36,12 +41,8 @@
             overflow-x: hidden;
         }
 
+        /* ================= HEADER ================= */
 
-        html {
-            scroll-behavior: smooth;
-        }
-
-        /* HEADER */
         header {
             position: fixed;
             top: 0;
@@ -49,7 +50,7 @@
             z-index: 1000;
             padding: 20px 30px;
             display: flex;
-            justify-content: space-between;
+            justify-content: center;
             align-items: center;
             background: rgba(0, 0, 0, 0.75);
             backdrop-filter: blur(10px);
@@ -60,6 +61,11 @@
             font-family: var(--font-display);
             letter-spacing: 4px;
             font-size: 1.4rem;
+        }
+
+        nav {
+            position: absolute;
+            right: 30px;
         }
 
         nav a {
@@ -75,12 +81,16 @@
             color: var(--text);
         }
 
-        /* HERO — SOLO TEXTO */
+        /* ================= HERO ================= */
+
         .hero {
-            height: 100vh;
+            min-height: 50vh;
+            /* mantiene fullscreen */
             display: flex;
-            align-items: center;
-            padding: 0 30px;
+            justify-content: center;
+            padding: 80px 30px 0px;
+            /* ↓ menos espacio arriba y abajo */
+            text-align: center;
             background:
                 radial-gradient(circle at 20% 20%, rgba(255, 0, 60, 0.15), transparent 40%),
                 repeating-linear-gradient(90deg,
@@ -107,7 +117,45 @@
             text-transform: uppercase;
         }
 
-        /* TIRA MARQUEE */
+        /* ===== HERO CON LOGO (VERSIÓN FINAL) ===== */
+
+        .hero-logo {
+            max-width: 520px;
+            /* logo más grande */
+            margin: 0 auto;
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        .hero-logo img {
+            width: 100%;
+            height: auto;
+            display: block;
+
+            /* Glow agresivo */
+            filter:
+                drop-shadow(0 0 20px rgba(255, 0, 60, 0.45)) drop-shadow(0 0 60px rgba(255, 0, 60, 0.25));
+
+            /* Animación */
+            opacity: 0;
+            animation: heroLogoFade 1.4s ease forwards;
+        }
+
+        /* Animación suave de entrada */
+        @keyframes heroLogoFade {
+            from {
+                opacity: 0;
+                transform: scale(0.94);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* ================= TICKER ================= */
+
         .ticker {
             overflow: hidden;
             border-top: 1px solid var(--border);
@@ -132,57 +180,22 @@
         }
 
         @keyframes scroll {
-            from {
-                transform: translateX(0);
-            }
-
             to {
                 transform: translateX(-50%);
             }
         }
 
-        /* MANIFESTO */
-        .manifesto {
-            padding: 120px 30px;
-            border-bottom: 1px solid var(--border);
-        }
+        /* ================= SHOP ================= */
 
-        .manifesto h2 {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            text-transform: uppercase;
-            max-width: 700px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        .manifesto span {
-            color: var(--accent);
-        }
-
-        .manifesto p {
-            margin-top: 30px;
-            max-width: 600px;
-            color: var(--muted);
-            font-size: 0.9rem;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
-        }
-
-        /* SHOP */
         .shop-header {
             padding: 120px 30px 40px;
+            text-align: center;
         }
 
         .shop-header h2 {
             font-family: var(--font-display);
             font-size: 3rem;
             text-transform: uppercase;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: center;
         }
 
         .filter-nav {
@@ -207,7 +220,6 @@
             color: var(--text);
         }
 
-        /* GRID */
         .grid {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
@@ -250,127 +262,36 @@
             margin-top: 5px;
         }
 
-        /* CONTACT */
-        .contact-section {
-            padding: 120px 30px;
-            background: #050505;
+        /* ================= SPLIT SECTION ================= */
+
+        .split-section {
+            padding: 140px 30px;
+            border-top: 1px solid var(--border);
             display: grid;
-            gap: 60px;
-        }
-
-        .contact-info h2 {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            text-transform: uppercase;
-        }
-
-        .contact-info p {
-            margin-top: 30px;
-            color: var(--muted);
-            max-width: 500px;
-        }
-
-        .contact-form input,
-        .contact-form textarea {
-            width: 100%;
-            background: none;
-            border: none;
-            border-bottom: 1px solid var(--border);
-            padding: 15px 0;
-            color: white;
-            outline: none;
-            margin-bottom: 20px;
-        }
-
-        .submit-btn {
-            background: white;
-            color: black;
-            border: none;
-            padding: 18px;
-            font-weight: 700;
-            text-transform: uppercase;
-            cursor: pointer;
-        }
-
-        .submit-btn:hover {
-            background: var(--accent);
-            color: white;
-        }
-
-        footer {
-            padding: 50px;
+            gap: 80px;
             text-align: center;
-            font-size: 0.7rem;
-            color: #444;
-            border-top: 1px solid var(--border);
-        }
-
-        @media (min-width: 1024px) {
-            .grid {
-                grid-template-columns: repeat(4, 1fr);
-            }
-
-            .contact-section {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        .glitch-text {
-            position: relative;
-            animation: glitch 0.6s linear;
-        }
-
-        @keyframes glitch {
-            0% {
-                transform: translate(0);
-            }
-
-            20% {
-                transform: translate(-2px, 1px);
-            }
-
-            40% {
-                transform: translate(2px, -1px);
-            }
-
-            60% {
-                transform: translate(-1px, 2px);
-            }
-
-            80% {
-                transform: translate(1px, -2px);
-            }
-
-            100% {
-                transform: translate(0);
-            }
-        }
-
-
-        .events-section {
-            padding: 120px 30px;
-            border-top: 1px solid var(--border);
-        }
-
-        .events-section h2 {
-            font-family: var(--font-display);
-            font-size: 3rem;
-            text-transform: uppercase;
-        }
-
-        .events-section span {
-            color: var(--accent);
         }
 
         .event-list {
             margin-top: 60px;
             display: grid;
             gap: 40px;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         .event {
             border-left: 3px solid var(--accent);
             padding-left: 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: .6s ease;
+        }
+
+        .event.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
 
         .event .date {
@@ -389,95 +310,6 @@
             text-decoration: none;
         }
 
-        .footer {
-            padding: 100px 30px;
-            display: grid;
-            gap: 60px;
-            border-top: 1px solid var(--border);
-            background: #000;
-        }
-
-        .footer-left h2 {
-            font-family: var(--font-display);
-            font-size: 3rem;
-        }
-
-        .footer-left a {
-            display: block;
-            margin-top: 20px;
-            font-size: 0.9rem;
-            color: var(--accent);
-            text-decoration: none;
-        }
-
-        .footer-right input,
-        .footer-right textarea {
-            width: 100%;
-            background: none;
-            border: none;
-            border-bottom: 1px solid var(--border);
-            padding: 15px 0;
-            color: white;
-            margin-bottom: 20px;
-        }
-
-        .footer-right button {
-            background: white;
-            color: black;
-            padding: 15px;
-            border: none;
-            font-weight: bold;
-            cursor: pointer;
-        }
-
-        @media (min-width: 1024px) {
-            .footer {
-                grid-template-columns: 1fr 1fr;
-            }
-        }
-
-        /* CENTRADO EDITORIAL */
-        .centered {
-            max-width: 1100px;
-            margin: 0 auto;
-            text-align: center;
-        }
-
-        /* Logo centrado */
-        header {
-            justify-content: center;
-        }
-
-        nav {
-            position: absolute;
-            right: 30px;
-        }
-
-        /* Títulos centrados */
-        .manifesto,
-        .shop-header,
-        .events-section {
-            text-align: center;
-        }
-
-        /* Ajustes internos */
-        .manifesto p,
-        .events-section .event-list {
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .event {
-            opacity: 0;
-            transform: translateY(20px);
-            transition: .6s ease;
-        }
-
-        .event.visible {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
         .countdown {
             margin-top: 40px;
             font-size: 1.2rem;
@@ -485,160 +317,7 @@
             letter-spacing: 2px;
         }
 
-        .hero {
-            justify-content: center;
-            text-align: center;
-        }
-
-        .hero>div {
-            max-width: 1100px;
-        }
-
-        .qr-box {
-            margin: 30px auto 0;
-            max-width: 160px;
-            text-align: center;
-        }
-
-
-        .qr-box img {
-            width: 180px;
-            height: auto;
-            border-radius: 8px;
-            background: #000;
-        }
-
-        .qr-box img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 25px rgba(255, 0, 60, 0.3);
-        }
-
-
-        .qr-box p {
-            margin-top: 10px;
-            font-size: 0.65rem;
-            letter-spacing: 2px;
-            text-transform: uppercase;
-            color: var(--muted);
-        }
-
-        .ig-link {
-            color: inherit;
-            text-decoration: none;
-            position: relative;
-        }
-
-        .ig-link::after {
-            content: '';
-            position: absolute;
-            left: 0;
-            bottom: -6px;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-            transform: scaleX(0);
-            transform-origin: right;
-            transition: transform .4s ease;
-        }
-
-        .ig-link:hover::after {
-            transform: scaleX(1);
-            transform-origin: left;
-        }
-
-        /* ============================
-   SPLIT SECTION (EVENTOS + MANIFESTO)
-============================ */
-
-        .split-section {
-            padding: 140px 30px;
-            border-top: 1px solid var(--border);
-            display: grid;
-            gap: 80px;
-        }
-
-        /* Columnas */
-        .split-col {
-            text-align: center;
-        }
-
-        /* Ajustes internos */
-        .events-col .event-list {
-            margin: 60px auto 0;
-            max-width: 400px;
-        }
-
-        .manifesto-col p {
-            margin: 30px auto 0;
-            max-width: 420px;
-            color: var(--muted);
-        }
-
-        /* Desktop layout */
-        @media (min-width: 1024px) {
-            .split-section {
-                max-width: 1200px;
-                margin: 0 auto;
-                grid-template-columns: 1fr 1fr;
-                align-items: center;
-            }
-
-            .events-col,
-            .manifesto-col {
-                padding: 0 40px;
-            }
-        }
-
-        .footer-left .ig,
-        .footer-left .wa {
-            font-family: var(--font-display);
-            font-size: 2rem;
-            /* tamaño grande */
-            letter-spacing: 1.6px;
-            text-transform: uppercase;
-        }
-
-        .footer-left .wa {
-            color: #25D366;
-        }
-
-        .footer-left .wa:hover {
-            text-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
-        }
-
-        /* =========================
-   NAV RESPONSIVE (MOBILE)
-========================= */
-        @media (max-width: 768px) {
-            header {
-                flex-direction: column;
-                gap: 15px;
-                padding: 20px;
-            }
-
-            nav {
-                position: static;
-                display: flex;
-                gap: 25px;
-            }
-
-            nav a {
-                border-bottom: 1px solid transparent;
-                padding-bottom: 4px;
-            }
-
-            nav a:hover {
-                border-color: var(--accent);
-            }
-        }
-
-        /* =========================
-   MANIFESTO VIBRANTE
-========================= */
-
-        .manifesto-vibe {
-            position: relative;
-        }
+        /* ================= MANIFESTO ================= */
 
         .manifesto-vibe .tagline {
             display: inline-block;
@@ -656,11 +335,7 @@
             text-transform: uppercase;
         }
 
-        .manifesto-vibe h2 span {
-            color: var(--text);
-        }
-
-        .manifesto-vibe h2 .accent {
+        .manifesto-vibe .accent {
             color: var(--accent);
             text-shadow: 0 0 30px rgba(255, 0, 60, 0.35);
         }
@@ -671,6 +346,7 @@
             max-width: 420px;
             margin-left: auto;
             margin-right: auto;
+            color: var(--muted);
         }
 
         .manifesto-sub {
@@ -689,9 +365,63 @@
             box-shadow: 0 0 20px rgba(255, 0, 60, 0.4);
         }
 
-        /* =========================
-   FORMULARIO – CARD EDITORIAL
-========================= */
+        /* ================= FOOTER ================= */
+
+        .footer {
+            padding: 100px 30px;
+            display: grid;
+            gap: 60px;
+            border-top: 1px solid var(--border);
+        }
+
+        .footer-left h2 {
+            font-family: var(--font-display);
+            font-size: 3rem;
+        }
+
+        .footer-left a {
+            display: block;
+            margin-top: 20px;
+            font-size: 0.9rem;
+            text-decoration: none;
+        }
+
+        .footer-left .ig {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: white;
+        }
+
+        .footer-left .wa {
+            font-family: var(--font-display);
+            font-size: 2rem;
+            color: #25D366;
+        }
+
+        .qr-box {
+            margin-top: 30px;
+            max-width: 160px;
+            text-align: center;
+        }
+
+        .qr-box img {
+            width: 180px;
+            border-radius: 8px;
+            transition: .4s;
+        }
+
+        .qr-box img:hover {
+            transform: scale(1.05);
+            box-shadow: 0 0 25px rgba(255, 0, 60, 0.3);
+        }
+
+        .qr-box p {
+            margin-top: 10px;
+            font-size: 0.65rem;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            color: var(--muted);
+        }
 
         .footer-right {
             border: 1px solid var(--border);
@@ -699,33 +429,108 @@
             background: #050505;
         }
 
-        .footer-right form {
-            max-width: 480px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
         .footer-right input,
         .footer-right textarea {
-            font-size: 0.9rem;
+            width: 100%;
+            background: none;
+            border: none;
+            border-bottom: 1px solid var(--border);
             padding: 18px 0;
-        }
-
-        .footer-right textarea {
-            min-height: 120px;
-            resize: none;
+            color: white;
+            margin-bottom: 20px;
         }
 
         .footer-right button {
-            margin-top: 15px;
+            width: 100%;
+            background: white;
+            color: black;
             padding: 18px;
+            border: none;
             font-size: 0.75rem;
             letter-spacing: 2px;
             text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .footer-right button:hover {
+            background: var(--accent);
+            color: white;
+        }
+
+        /* ================= EFFECTS ================= */
+
+        .glitch-text {
+            animation: glitch 0.6s linear;
+        }
+
+        @keyframes glitch {
+            20% {
+                transform: translate(-2px, 1px);
+            }
+
+            40% {
+                transform: translate(2px, -1px);
+            }
+
+            60% {
+                transform: translate(-1px, 2px);
+            }
+        }
+
+        /* ================= RESPONSIVE ================= */
+
+        @media (min-width: 1024px) {
+            .grid {
+                grid-template-columns: repeat(4, 1fr);
+            }
+
+            .split-section {
+                grid-template-columns: 1fr 1fr;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+
+            .footer {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            header {
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            nav {
+                position: static;
+            }
+        }
+
+        /* ===== FOOTER CENTRADO ===== */
+
+        .footer {
+            text-align: center;
+        }
+
+        .footer-left,
+        .footer-right {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /* Inputs y form centrados */
+        .footer-right form {
             width: 100%;
+            max-width: 420px;
+        }
+
+        .footer-right input,
+        .footer-right textarea,
+        .footer-right button {
+            text-align: center;
         }
     </style>
-
 </head>
 
 <body>
@@ -737,19 +542,19 @@
             <a href="#events">Encuéntranos</a>
             <a href="#contact">Contacto</a>
         </nav>
-
     </header>
 
-    <section class="hero centered">
-
-        <div>
-            <h1>KYOMU</h1>
-            <p>Después de imaginarlo, lo estampamos</p>
+    <section class="hero">
+        <div class="hero-logo">
+            <img src="logo.png" alt="KYOMU Logo">
         </div>
     </section>
 
+
     <div class="ticker">
         <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
@@ -761,7 +566,7 @@
         </div>
     </div>
 
-    <section class="shop-header centered" id="shop">
+    <section class="shop-header" id="shop">
         <h2>La Bodega</h2>
         <div class="filter-nav">
             <button class="filter-btn active" onclick="filterBy('all', this)">Todo</button>
@@ -773,8 +578,10 @@
 
     <div class="grid" id="product-grid"></div>
 
-    <div class="ticker">
+        <div class="ticker">
         <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
@@ -788,14 +595,11 @@
 
     <section class="split-section" id="events">
 
-        <!-- COLUMNA IZQUIERDA -->
-        <div class="split-col events-col">
-            <h2>Encuéntranos en<br><span>los siguientes eventos</span></h2>
-
+        <div>
+            <h2>Encuéntranos en<br><span style="color:var(--accent)">eventos</span></h2>
             <div class="countdown" id="countdown"></div>
 
             <div class="event-list">
-
                 <div class="event">
                     <p class="date">31 · Ene · 2026 - 01 · Feb · 2026</p>
                     <h3>Expo Kipon</h3>
@@ -804,44 +608,28 @@
                         Ver ubicación
                     </a>
                 </div>
-
                 <div class="event">
                     <p class="date">02 · NOV · 2026</p>
                     <h3>Street Art Expo</h3>
                     <p>Puebla, MX</p>
-                    <a href="https://maps.google.com/?q=Puebla" target="_blank">
-                        Ver ubicación
-                    </a>
                 </div>
-
             </div>
         </div>
 
-        <!-- COLUMNA DERECHA -->
-        <div class="split-col manifesto-col manifesto-vibe">
+        <div class="manifesto-vibe">
             <span class="tagline">KYOMU MANIFESTO</span>
-
-            <h2>
-                No es solo <span>ropa</span><br>
-                es tu <span class="accent">otra piel</span>
-            </h2>
-
-            <p class="manifesto-lead">
-                Archivo urbano nacido del anime, la narrativa gráfica
-                y la cultura street japonesa.
-            </p>
-
-            <p class="manifesto-sub">
-                Producción limitada · Sin reglas · Hecho para los que no encajan
-            </p>
-
+            <h2>No es solo ropa<br>es tu <span class="accent">otra piel</span></h2>
+            <p class="manifesto-lead">Archivo urbano nacido del anime y la cultura street.</p>
+            <p class="manifesto-sub">Producción limitada · Sin reglas</p>
             <div class="manifesto-bar"></div>
         </div>
 
     </section>
 
-    <div class="ticker">
+        <div class="ticker">
         <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
             <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS</span>
@@ -854,22 +642,12 @@
     </div>
 
     <footer class="footer" id="contact">
-
         <div class="footer-left">
             <h2>KYOMU</h2>
-
-            <a class="ig" href="https://www.instagram.com/kyomuoficial?igsh=bXFidm02NjlzeDVi" target="_blank">
-                @kyomuoficial
-            </a>
-
-            <a class="wa"
-                href="https://wa.me/522299098292?text=hola%20buen%20día,%20me%20gustaría%20cotizar%20un%20diseño"
-                target="_blank">
-                WA · 229 909 8292
-            </a>
-
+            <a class="ig" href="https://instagram.com/kyomuoficial" target="_blank">@kyomuoficial</a>
+            <a class="wa" href="https://wa.me/522299098292" target="_blank">WA · 229 909 8292</a>
             <div class="qr-box">
-                <img src="qrwa.png" alt="QR WhatsApp KYOMU">
+                <img src="qrwa.png">
                 <p>Escanea para cotizar</p>
             </div>
         </div>
@@ -877,7 +655,6 @@
         <div class="footer-right">
             <form action="https://formspree.io/f/TU_ID_AQUI" method="POST">
                 <input type="text" name="name" placeholder="Nombre" required>
-                <input type="tel" name="phone" placeholder="Teléfono" required>
                 <input type="email" name="email" placeholder="Correo" required>
                 <textarea name="message" placeholder="Platícame tu idea" required></textarea>
                 <button type="submit">Enviar</button>
@@ -889,8 +666,7 @@
         const products = [
             { name: "Guts Eclipse Tee", price: "$450 MXN", cat: "anime", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000" },
             { name: "Spider-Gwen Synth", price: "$450 MXN", cat: "comics", img: "https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000" },
-            { name: "Custom KYOMU", price: "$500 MXN", cat: "custom", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000" },
-            { name: "Naruto Sage Mode", price: "$450 MXN", cat: "anime", img: "https://images.unsplash.com/photo-1521572163474-6864f9cf17ab?q=80&w=1000" }
+            { name: "Custom KYOMU", price: "$500 MXN", cat: "custom", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000" }
         ];
 
         function renderProducts(filter = 'all') {
@@ -901,9 +677,7 @@
             items.forEach(p => {
                 grid.innerHTML += `
             <div class="card">
-                <div class="img-box">
-                    <img src="${p.img}">
-                </div>
+                <div class="img-box"><img src="${p.img}"></div>
                 <div class="card-info">
                     <h3>${p.name}</h3>
                     <p>${p.price}</p>
@@ -915,86 +689,29 @@
         function filterBy(cat, el) {
             document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
             el.classList.add('active');
+            document.querySelector('.shop-header h2').classList.add('glitch-text');
+            setTimeout(() => document.querySelector('.shop-header h2').classList.remove('glitch-text'), 600);
             renderProducts(cat);
-        }
-
-        function sendInquiry() {
-            const name = document.getElementById('name').value;
-            const msg = document.getElementById('message').value;
-            const phone = "5215555555555";
-            window.open(`https://wa.me/${phone}?text=${encodeURIComponent(`Soy ${name}. ${msg}`)}`, '_blank');
         }
 
         renderProducts();
 
-
-
-
-        const glitchTargets = document.querySelectorAll(
-            "section h1, section h2"
-        );
-
-        const glitchObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("glitch-text");
-
-                    setTimeout(() => {
-                        entry.target.classList.remove("glitch-text");
-                    }, 600);
-                }
-            });
-        }, { threshold: 0.6 });
-
-        glitchTargets.forEach(el => glitchObserver.observe(el));
-
-
-
-
-        // Animar eventos
-        const events = document.querySelectorAll(".event");
-
-        const eventObserver = new IntersectionObserver(entries => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.classList.add("visible");
-                }
-            });
+        const observer = new IntersectionObserver(entries => {
+            entries.forEach(e => e.isIntersecting && e.target.classList.add('visible'));
         }, { threshold: 0.3 });
 
-        events.forEach(e => eventObserver.observe(e));
+        document.querySelectorAll('.event').forEach(e => observer.observe(e));
 
-        // Countdown próximo evento
         const eventDate = new Date("2026-01-31T09:00:00").getTime();
-        const countdownEl = document.getElementById("countdown");
-
         setInterval(() => {
-            const now = new Date().getTime();
-            const diff = eventDate - now;
-
+            const diff = eventDate - Date.now();
             if (diff < 0) return;
-
             const d = Math.floor(diff / (1000 * 60 * 60 * 24));
             const h = Math.floor((diff / (1000 * 60 * 60)) % 24);
             const m = Math.floor((diff / (1000 * 60)) % 60);
-
-            countdownEl.textContent =
+            document.getElementById("countdown").textContent =
                 `Próximo evento en ${d} días · ${h} hrs · ${m} min`;
-
         }, 1000);
-
-        function filterBy(cat, el) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-            el.classList.add('active');
-
-            document.querySelector('.shop-header h2').classList.add('glitch-text');
-            setTimeout(() => {
-                document.querySelector('.shop-header h2').classList.remove('glitch-text');
-            }, 600);
-
-            renderProducts(cat);
-        }
-
     </script>
 
 </body>
