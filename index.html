@@ -517,7 +517,45 @@
         </div>
     </section>
 
-    <div class="grid" id="product-grid"></div>
+    <div class="grid" id="product-grid">
+
+        <!-- ANIME -->
+        <div class="card" data-cat="anime">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000"
+                    alt="Guts Eclipse Tee">
+            </div>
+            <div class="card-info">
+                <h3>Guts Eclipse Tee</h3>
+                <p>$450 MXN</p>
+            </div>
+        </div>
+
+        <!-- COMICS -->
+        <div class="card" data-cat="comics">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000"
+                    alt="Spider-Gwen Synth">
+            </div>
+            <div class="card-info">
+                <h3>Spider-Gwen Synth</h3>
+                <p>$450 MXN</p>
+            </div>
+        </div>
+
+        <!-- CUSTOM -->
+        <div class="card" data-cat="custom">
+            <div class="img-box">
+                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000" alt="Custom KYOMU">
+            </div>
+            <div class="card-info">
+                <h3>Custom KYOMU</h3>
+                <p>$500 MXN</p>
+            </div>
+        </div>
+
+    </div>
+
 
     <section class="split-section" id="events">
         <div>
@@ -534,7 +572,7 @@
                     <p class="date">31 · Ene · 2026 - 01 · Feb · 2026</p>
                     <h3>Expo Kipon</h3>
                     <p>WTC, Veracruz, MX</p>
-                    <a href="#" target="_blank">Ver ubicación</a>
+                    <a href="https://maps.app.goo.gl/8bA6WhHMr4HdwrRj9" target="_blank">Ver ubicación</a>
                 </div>
 
                 <!-- <div class="event">
@@ -576,40 +614,24 @@
     </footer>
 
     <script>
-        // 1. GESTIÓN DE PRODUCTOS
-        const products = [
-            { name: "Guts Eclipse Tee", price: "$450 MXN", cat: "anime", img: "https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000" },
-            { name: "Spider-Gwen Synth", price: "$450 MXN", cat: "comics", img: "https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000" },
-            { name: "Custom KYOMU", price: "$500 MXN", cat: "custom", img: "https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000" }
-        ];
-
-        function renderProducts(filter = 'all') {
-            const grid = document.getElementById('product-grid');
-            grid.innerHTML = '';
-            const items = filter === 'all' ? products : products.filter(p => p.cat === filter);
-
-            items.forEach(p => {
-                grid.innerHTML += `
-                    <div class="card">
-                        <div class="img-box"><img src="${p.img}"></div>
-                        <div class="card-info">
-                            <h3>${p.name}</h3>
-                            <p>${p.price}</p>
-                        </div>
-                    </div>`;
-            });
-        }
-
         function filterBy(cat, el) {
-            document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+            document.querySelectorAll('.filter-btn')
+                .forEach(b => b.classList.remove('active'));
             el.classList.add('active');
+
             const h2 = document.querySelector('.shop-header h2');
             h2.classList.add('glitch-text');
             setTimeout(() => h2.classList.remove('glitch-text'), 600);
-            renderProducts(cat);
+
+            document.querySelectorAll('#product-grid .card').forEach(card => {
+                if (cat === 'all' || card.dataset.cat === cat) {
+                    card.style.display = 'block';
+                } else {
+                    card.style.display = 'none';
+                }
+            });
         }
 
-        renderProducts();
 
         // 2. ANIMACIÓN DE EVENTOS AL HACER SCROLL
         const observer = new IntersectionObserver(entries => {
