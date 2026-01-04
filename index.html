@@ -477,6 +477,22 @@
                 position: static;
             }
         }
+
+        /* ================= PRODUCT FILTER ANIMATION ================= */
+
+        .card {
+            opacity: 1;
+            transform: translateY(0);
+            transition:
+                opacity 0.35s ease,
+                transform 0.35s ease;
+        }
+
+        .card.hide {
+            opacity: 0;
+            transform: translateY(20px);
+            pointer-events: none;
+        }
     </style>
 </head>
 
@@ -614,6 +630,7 @@
     </footer>
 
     <script>
+
         function filterBy(cat, el) {
             document.querySelectorAll('.filter-btn')
                 .forEach(b => b.classList.remove('active'));
@@ -624,13 +641,16 @@
             setTimeout(() => h2.classList.remove('glitch-text'), 600);
 
             document.querySelectorAll('#product-grid .card').forEach(card => {
-                if (cat === 'all' || card.dataset.cat === cat) {
-                    card.style.display = 'block';
+                const match = (cat === 'all' || card.dataset.cat === cat);
+
+                if (match) {
+                    card.classList.remove('hide');
                 } else {
-                    card.style.display = 'none';
+                    card.classList.add('hide');
                 }
             });
         }
+
 
 
         // 2. ANIMACIÓN DE EVENTOS AL HACER SCROLL
