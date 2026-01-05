@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>KYOMU | STREETWEAR</title>
+    <title>KYOMU | BASE</title>
 
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Oswald:wght@600;700&display=swap"
         rel="stylesheet">
@@ -18,8 +18,9 @@
 
     <header>
         <div class="logo">
-
-            <span>KYOMU</span>
+            <a href="index.html" class="logo-link">
+                <img src="logo.png" alt="KYOMU Logo" class="logo-img">
+            </a>
         </div>
 
 
@@ -39,17 +40,25 @@
             </div>
 
 
-            <a href="#events">Encuéntranos</a>
+
             <a href="#contact">Contacto</a>
         </nav>
     </header>
 
-
-    <section class="hero">
-        <div class="hero-logo">
-            <img src="logo.png" alt="KYOMU Logo">
+    <div class="ticker">
+        <div class="ticker-track">
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
+            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
         </div>
-    </section>
+    </div>
+
 
     <div class="ticker">
         <div class="ticker-track">
@@ -66,100 +75,18 @@
     </div>
 
     <section class="shop-header" id="shop">
-        <h2>La Bodega</h2>
+        <h2>Base</h2>
+
+
         <div class="filter-nav">
-            <button class="filter-btn active" onclick="filterBy('all', this)">Todo</button>
-            <button class="filter-btn" onclick="filterBy('anime', this)">Anime</button>
-            <button class="filter-btn" onclick="filterBy('comics', this)">Comics</button>
-            <button class="filter-btn" onclick="filterBy('custom', this)">Custom</button>
+            <a href="index.html" class="filter-btn active">Home</a>
+            <a href="tienda.html" class="filter-btn">Tienda</a>
+            <a href="novedades.html" class="filter-btn">Novedades</a>
+            <a href="colecciones.html" class="filter-btn">Colecciones</a>
         </div>
     </section>
 
-    <div class="grid" id="product-grid">
 
-        <!-- ANIME -->
-        <div class="card" data-cat="anime">
-            <div class="img-box">
-                <img src="https://images.unsplash.com/photo-1576566588028-4147f3842f27?q=80&w=1000"
-                    alt="Guts Eclipse Tee">
-            </div>
-            <div class="card-info">
-                <h3>Guts Eclipse Tee</h3>
-                <p>$450 MXN</p>
-            </div>
-        </div>
-
-        <!-- COMICS -->
-        <div class="card" data-cat="comics">
-            <div class="img-box">
-                <img src="https://images.unsplash.com/photo-1503341455253-b2e72333dbdb?q=80&w=1000"
-                    alt="Spider-Gwen Synth">
-            </div>
-            <div class="card-info">
-                <h3>Spider-Gwen Synth</h3>
-                <p>$450 MXN</p>
-            </div>
-        </div>
-
-        <!-- CUSTOM -->
-        <div class="card" data-cat="custom">
-            <div class="img-box">
-                <img src="https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?q=80&w=1000" alt="Custom KYOMU">
-            </div>
-            <div class="card-info">
-                <h3>Custom KYOMU</h3>
-                <p>$500 MXN</p>
-            </div>
-        </div>
-
-    </div>
-    <div class="ticker">
-        <div class="ticker-track">
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-            <span>DESPUÉS DE IMAGINARLO, LO ESTAMPAMOS — </span>
-        </div>
-    </div>
-
-    <section class="split-section" id="events">
-        <div>
-            <h2>Encuéntranos en<br><span style="color:var(--accent)">eventos</span></h2>
-
-            <div class="countdown" id="countdown">Iniciando...</div>
-
-            <div class="event-list">
-                <div class="event" data-date="2026-01-31T09:00:00">
-
-                    <!-- Para cambiar el contador: Ve a la línea 214 y cambia el valor de data-date="2026-01-31T09:00:00". No necesitas tocar nada más. -->
-
-
-                    <p class="date">31 · Ene · 2026 - 01 · Feb · 2026</p>
-                    <h3>Expo Kipon</h3>
-                    <p>WTC, Veracruz, MX</p>
-                    <a href="https://maps.app.goo.gl/8bA6WhHMr4HdwrRj9" target="_blank">Ver ubicación</a>
-                </div>
-
-                <!-- <div class="event">
-                    <p class="date">02 · NOV · 2026</p>
-                    <h3>Street Art Expo</h3>
-                    <p>Puebla, MX</p>
-                </div> -->
-            </div>
-        </div>
-
-        <div class="manifesto-vibe">
-            <span class="tagline">KYOMU MANIFESTO</span>
-            <h2>No es solo ropa<br>es tu <span class="accent">otra piel</span></h2>
-            <p class="manifesto-lead">Archivo urbano nacido del anime y la cultura street.</p>
-            <div class="manifesto-bar"></div>
-        </div>
-    </section>
 
 
     <div class="ticker">
