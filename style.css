@@ -1070,3 +1070,87 @@ nav a:hover {
         grid-template-columns: repeat(4, 1fr);
     }
 }
+
+/* ================= SHOP HEADER MOBILE COLUMNS ================= */
+
+@media (max-width: 768px) {
+    .filter-nav {
+        flex-direction: column;
+        gap: 14px;
+        margin-top: 30px;
+    }
+
+    .filter-btn {
+        width: 100%;
+        text-align: center;
+        padding: 14px 0;
+    }
+}
+
+@media (max-width: 768px) {
+    .filter-btn {
+        background: rgba(255, 255, 255, 0.03);
+    }
+}
+
+
+/* ================= HEADER MOBILE STACK ================= */
+
+@media (max-width: 768px) {
+
+    header {
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding: 18px 20px;
+    }
+
+    nav {
+        position: static;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 14px;
+    }
+
+    nav a,
+    .nav-link {
+        margin-left: 0;
+        font-size: 0.75rem;
+    }
+
+    .nav-dropdown {
+        text-align: center;
+    }
+}
+
+/* ================= NAV MOBILE MODE ================= */
+
+/* Por defecto (desktop) */
+.nav-mobile {
+    display: none;
+}
+
+/* Mobile & Tablet */
+@media (max-width: 1024px) {
+
+    /* Ocultar dropdown */
+    .nav-dropdown {
+        display: none;
+    }
+
+    /* Mostrar links independientes */
+    .nav-mobile {
+        display: block;
+        font-size: 0.75rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        color: var(--muted);
+        text-decoration: none;
+        transition: 0.3s;
+    }
+
+    .nav-mobile:hover {
+        color: var(--text);
+    }
+}
