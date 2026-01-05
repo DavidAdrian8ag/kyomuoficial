@@ -62,36 +62,76 @@ function initCountdown() {
 
 initCountdown();
 
-
-/* ================= NOVEDADES CAROUSEL ================= */
+/* ================= CARRUSEL INFINITO NOVEDADES ================= */
 
 const track = document.querySelector('.carousel-track');
-const items = document.querySelectorAll('.carousel-item');
 const prevBtn = document.querySelector('.carousel-btn.prev');
 const nextBtn = document.querySelector('.carousel-btn.next');
 
-let index = 0;
-const itemWidth = items[0].offsetWidth + 30;
+let items = document.querySelectorAll('.carousel-item');
+const gap = 30;
+let itemWidth = items[0].offsetWidth + gap;
 
-function updateCarousel() {
+/* Clonar primero y último */
+const firstClone = items[0].cloneNode(true);
+const lastClone = items[items.length - 1].cloneNode(true);
+
+track.appendChild(firstClone);
+track.insertBefore(lastClone, items[0]);
+
+items = document.querySelectorAll('.carousel-item');
+
+let index = 1;
+
+/* Posición inicial */
+track.style.transform = `translateX(-${index * itemWidth}px)`;
+
+/* Movimiento base */
+function moveCarousel() {
+    track.style.transition = 'transform 0.6s ease';
     track.style.transform = `translateX(-${index * itemWidth}px)`;
 }
 
+/* Flechas */
 nextBtn.addEventListener('click', () => {
-    index = (index + 1) % items.length;
-    updateCarousel();
+    index++;
+    moveCarousel();
 });
 
 prevBtn.addEventListener('click', () => {
-    index = (index - 1 + items.length) % items.length;
-    updateCarousel();
+    index--;
+    moveCarousel();
+});
+
+/* Reset invisible al llegar a clones */
+track.addEventListener('transitionend', () => {
+    const current = items[index];
+
+    if (current === firstClone) {
+        track.style.transition = 'none';
+        index = 1;
+        track.style.transform = `translateX(-${index * itemWidth}px)`;
+    }
+
+    if (current === lastClone) {
+        track.style.transition = 'none';
+        index = items.length - 2;
+        track.style.transform = `translateX(-${index * itemWidth}px)`;
+    }
 });
 
 /* Autoplay */
-setInterval(() => {
-    index = (index + 1) % items.length;
-    updateCarousel();
+let autoplay = setInterval(() => {
+    index++;
+    moveCarousel();
 }, 4000);
+
+/* Recalcular tamaños */
+window.addEventListener('resize', () => {
+    itemWidth = items[0].offsetWidth + gap;
+    track.style.transition = 'none';
+    track.style.transform = `translateX(-${index * itemWidth}px)`;
+});
 
 
 /* ================= LIGHTBOX ================= */
