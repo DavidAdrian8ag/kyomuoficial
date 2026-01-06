@@ -1281,3 +1281,16 @@ nav a:hover {
    border-color: var(--accent);
    background: rgba(255, 255, 255, 0.04);
 }
+
+
+/* ================= esconder card index ================= */
+
+.card.hide {
+   opacity: 0;
+   transform: translateY(20px);
+   pointer-events: none;
+}
+
+.card.hidden {
+   display: none;
+}

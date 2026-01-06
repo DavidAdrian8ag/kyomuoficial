@@ -7,16 +7,28 @@ function filterBy(cat, el) {
     h2.classList.add('glitch-text');
     setTimeout(() => h2.classList.remove('glitch-text'), 600);
 
-    document.querySelectorAll('#product-grid .card').forEach(card => {
+    const cards = document.querySelectorAll('#product-grid .card');
+
+    cards.forEach(card => {
         const match = (cat === 'all' || card.dataset.cat === cat);
 
+        // Mostrar
         if (match) {
-            card.classList.remove('hide');
-        } else {
+            card.classList.remove('hidden');
+            requestAnimationFrame(() => {
+                card.classList.remove('hide');
+            });
+        }
+        // Ocultar
+        else {
             card.classList.add('hide');
+            setTimeout(() => {
+                card.classList.add('hidden');
+            }, 350); // debe coincidir con el transition del CSS
         }
     });
 }
+
 
 
 
