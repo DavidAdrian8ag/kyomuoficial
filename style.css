@@ -69,6 +69,42 @@ nav a:hover {
     color: var(--text);
 }
 
+/* ================= NAV FIX MOBILE ================= */
+
+@media (max-width: 768px) {
+
+    nav {
+        position: static;
+        /* 🔥 sobrescribe absolute */
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 24px;
+        text-align: center;
+        width: 100%;
+    }
+
+    nav a,
+    .nav-mobile {
+        margin-left: 0;
+        /* quita offset desktop */
+        font-size: 0.75rem;
+    }
+
+    /* Contacto ocupa toda la fila */
+    nav a[href="#contact"] {
+        grid-column: span 2;
+    }
+}
+
+
+/* ================= FIX HERO UNDER HEADER (MOBILE) ================= */
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 180px;
+    }
+}
+
 /* ================= HERO ================= */
 .hero {
     min-height: 50vh;
@@ -1194,8 +1230,7 @@ nav a:hover {
 
     nav {
         position: static;
-        display: flex;
-        flex-direction: column;
+
         align-items: center;
         gap: 14px;
     }
@@ -1296,3 +1331,43 @@ nav a:hover {
 .card.hidden {
     display: none;
 }
+
+/* ================= NAV MOBILE FINAL FIX ================= */
+
+@media (max-width: 768px) {
+
+    header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    nav {
+        position: static;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 14px 24px;
+        width: 100%;
+        text-align: center;
+    }
+
+    /* Links mobile */
+    .nav-mobile {
+        display: block;
+        margin: 0;
+        font-size: 0.75rem;
+    }
+
+    /* Contacto ocupa fila completa */
+    nav a[href="#contact"] {
+        grid-column: span 2;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        padding-top: 220px; /* compensación real del header */
+    }
+}
+
