@@ -1239,3 +1239,45 @@ nav a:hover {
       color: var(--text);
    }
 }
+
+
+
+
+
+/* ================= FILTER BUTTON ACTIVE STYLE ================= */
+
+.shop-link {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 40px;
+}
+
+.filter-btn.active1 {
+   position: relative;
+   color: var(--accent);
+   border: 1px solid var(--text);
+   background: rgba(20, 149, 224, 0.05);
+   box-shadow:
+      0 0 14px rgba(224, 222, 223, 0.45),
+      inset 0 0 10px rgba(201, 198, 199, 0.25);
+   transition: all 0.3s ease;
+}
+
+/* Línea inferior roja */
+.filter-btn.active1::after {
+   content: "";
+   position: absolute;
+   left: 10%;
+   bottom: -6px;
+   width: 80%;
+   height: 2px;
+   background: var(--text);
+   box-shadow: 0 0 14px rgba(212, 211, 211, 0.8);
+}
+
+/* Hover para los que NO están activos */
+.filter-btn:hover:not(.active) {
+   color:  var(--text);
+   border-color: var(--accent);
+   background: rgba(255, 255, 255, 0.04);
+}
