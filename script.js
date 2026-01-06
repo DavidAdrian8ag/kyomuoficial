@@ -157,3 +157,13 @@ lightbox.addEventListener('click', e => {
         lightbox.classList.add('hidden');
     }
 });
+
+
+document.querySelectorAll('.filter-nav a').forEach(link => {
+    const current = window.location.pathname.split('/').pop() || 'index.html';
+    const href = link.getAttribute('href');
+
+    if (href === current) {
+        link.classList.add('active');
+    }
+});

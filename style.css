@@ -168,11 +168,68 @@ nav a:hover {
     transition: 0.3s;
 }
 
+/* ================= FILTER BUTTON ACTIVE STYLE ================= */
 .filter-btn.active {
-    border-color: var(--text);
+    position: relative;
     color: var(--text);
-    background: rgba(255, 255, 255, 0.05);
+    border: 1px solid var(--accent);
+    background: rgba(255, 0, 60, 0.05);
+    box-shadow:
+        0 0 14px rgba(255, 0, 60, 0.45),
+        inset 0 0 10px rgba(255, 0, 60, 0.25);
+    transition: all 0.3s ease;
 }
+
+/* Línea inferior roja */
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    left: 10%;
+    bottom: -6px;
+    width: 80%;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 14px rgba(255, 0, 60, 0.8);
+}
+
+/* Hover para los que NO están activos */
+.filter-btn:hover:not(.active) {
+    color: var(--text);
+    border-color: var(--text);
+    background: rgba(255, 255, 255, 0.04);
+}
+
+/* ================= FILTER ACTIVE (KYOMU STYLE) ================= */
+
+
+.filter-btn.active {
+    position: relative;
+    color: var(--accent);
+    border-color: var(--accent);
+    background: rgba(255, 0, 60, 0.12);
+    box-shadow:
+        0 0 18px rgba(255, 0, 60, 0.45),
+        inset 0 0 14px rgba(255, 0, 60, 0.25);
+}
+
+/* Línea inferior roja */
+.filter-btn.active::after {
+    content: "";
+    position: absolute;
+    left: 15%;
+    bottom: -6px;
+    width: 70%;
+    height: 2px;
+    background: var(--accent);
+    box-shadow: 0 0 14px rgba(255, 0, 60, 0.8);
+}
+
+.filter-btn:hover:not(.active) {
+    color: var(--text);
+    border-color: var(--text);
+    background: rgba(255, 255, 255, 0.04);
+}
+
 
 .grid {
     display: grid;
